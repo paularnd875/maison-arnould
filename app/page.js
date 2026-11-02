@@ -271,7 +271,7 @@ export default function Home() {
 
         {/* ——— Contact ——— */}
         <section id="contact" className="contact">
-          <Medallion size={96} />
+          <Medallion size={96} ink="#F4ECD6" gold="#E8C547" />
           <h2>écrire à la maison</h2>
           {site.email ? (
             <p><a href={`mailto:${site.email}`}>{site.email}</a></p>

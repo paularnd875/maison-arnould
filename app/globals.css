@@ -269,3 +269,43 @@ section[id] { scroll-margin-top: 80px; }
 @media (max-width: 760px) { section[id] { scroll-margin-top: 110px; } }
 /* Visiteur déjà confirmé : pas de flash de l'écran d'âge */
 html[data-age='ok'] .agegate { display: none; }
+
+/* ——— Couleurs · version A : crème en haut, puis vert jusqu'en bas ——— */
+.liqueurs { background: var(--creme); border-top: 1px solid var(--ligne); }
+
+/* La bascule : la page décante du crème vers le vert nuit, comme la liqueur dans la bouteille */
+.simples {
+  padding-top: 260px;
+  background:
+    linear-gradient(180deg, var(--creme) 0, #C9CE8E 70px, #7F9248 150px, #34491C 215px, var(--nuit) 260px) top / 100% 260px no-repeat,
+    var(--nuit);
+  color: var(--creme);
+}
+#simples { scroll-margin-top: -190px; }
+.simples .kicker, .lexique .kicker { color: var(--tilleul); }
+.definition__word { color: var(--creme); }
+.definition__word span { color: var(--tilleul); }
+.definition p:last-child { color: #E2DCC4; }
+.essai, .essais__list > ul:first-of-type { border-color: #3E4A2A; }
+.essai__text { color: #E2DCC4; }
+.essai__name { color: var(--creme); }
+.essai__name i { color: var(--tilleul); }
+.essai__n { color: var(--citron); }
+.carnet li { color: #E2DCC4; }
+.carnet b { color: var(--creme); }
+.carnet i { color: var(--tilleul); }
+.simples .note { color: var(--tilleul); }
+
+.lexique { background: var(--nuit); border-top: 1px solid #3E4A2A; }
+.lexique h2 { color: var(--creme); }
+.lexique h2 em { color: var(--citron); }
+.lex { border-color: #3E4A2A; }
+.lex dt { color: var(--creme); }
+.lex dt span { color: var(--tilleul); }
+.lex dd { color: #E2DCC4; }
+
+.contact { background: var(--nuit); border-top: 1px solid #3E4A2A; }
+.contact h2 { color: var(--creme); }
+.contact p { color: #E2DCC4; }
+.contact a { color: var(--citron); }
+.footer { border-top: 1px solid #3E4A2A; }
