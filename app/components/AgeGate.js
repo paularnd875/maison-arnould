@@ -6,7 +6,7 @@ import Medallion from './Medallion';
 const KEY = 'ma-age-ok';
 
 export default function AgeGate() {
-  const [state, setState] = useState('hidden'); // hidden | ask | refused
+  const [state, setState] = useState('ask'); // ask | refused | hidden — affiché dès le rendu serveur
 
   useEffect(() => {
     let ok = false;
@@ -15,7 +15,7 @@ export default function AgeGate() {
     } catch (e) {
       ok = false;
     }
-    if (!ok) setState('ask');
+    if (ok) setState('hidden');
   }, []);
 
   useEffect(() => {

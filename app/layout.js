@@ -42,7 +42,14 @@ export default function RootLayout({ children }) {
     description: site.description,
   };
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{if(localStorage.getItem('ma-age-ok')==='1')document.documentElement.setAttribute('data-age','ok')}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         <AgeGate />
         {children}

@@ -267,3 +267,5 @@ p { margin: 0; }
 /* Les ancres ne passent pas sous la barre du haut */
 section[id] { scroll-margin-top: 80px; }
 @media (max-width: 760px) { section[id] { scroll-margin-top: 110px; } }
+/* Visiteur déjà confirmé : pas de flash de l'écran d'âge */
+html[data-age='ok'] .agegate { display: none; }
