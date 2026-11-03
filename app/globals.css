@@ -428,3 +428,65 @@ html[data-age='ok'] .agegate { display: none; }
 .frise { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
 @media (max-width: 1000px) { .frise { grid-template-columns: 1fr !important; } }
 .step--miel .miel__mot { font-size: 28px; }
+
+/* ——— V4 ——— */
+.topbar { transition: background-color 0.5s ease, border-color 0.5s ease; }
+.topbar__brand, .topbar__nav a { transition: color 0.5s ease; }
+.topbar--nuit { background: rgba(31, 42, 20, 0.96); border-bottom-color: #3E4A2A; }
+.topbar--nuit .topbar__brand, .topbar--nuit .topbar__nav a { color: var(--creme); }
+.topbar--nuit .topbar__nav a:hover { color: var(--citron); }
+
+.frise__wrap { position: relative; max-width: var(--max); margin: 48px auto 0; padding: 0 clamp(16px, 4vw, 48px); }
+.frise__wrap .frise { margin: 0; padding: 0; }
+.frise__wrap .frise::before { left: 0; right: 14px; }
+.vigne { position: absolute; left: clamp(16px, 4vw, 48px); right: clamp(16px, 4vw, 48px); top: -24px; height: 60px; pointer-events: none; }
+.vigne__tige { position: absolute; inset: 0; width: 100%; height: 100%; }
+.vigne__orn { position: absolute; top: 0; overflow: visible; }
+.vigne__fleche { position: absolute; right: -12px; top: 20px; width: 26px; height: 20px; }
+.frise__dot { z-index: 1; }
+@media (max-width: 1000px) {
+  .vigne { display: none; }
+  .frise__wrap .frise::before { left: 6px; right: auto; bottom: 10px; }
+  .frise__wrap .frise::after { content: ''; position: absolute; left: 1px; bottom: 0; border: 6px solid transparent; border-top: 10px solid var(--or); opacity: 0.8; }
+}
+
+/* Préparation en défilement horizontal */
+.prep { max-width: var(--max); margin: 40px auto 0; padding: 0 clamp(16px, 4vw, 48px); }
+.prep__track {
+  list-style: none; margin: 0; padding: 0 0 8px;
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 900px); column-gap: 28px;
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scrollbar-width: none; cursor: grab; user-select: none;
+}
+.prep__track::-webkit-scrollbar { display: none; }
+.prep__track.is-drag { cursor: grabbing; scroll-snap-type: none; }
+.prep__track:focus-visible { outline: 1px solid var(--or); outline-offset: 6px; }
+.prep__card { scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.prep__img { position: relative; aspect-ratio: 1 / 1; max-height: 68vh; overflow: hidden; background: var(--creme-2); transition: opacity 0.7s ease; }
+.prep__img img { object-fit: cover; pointer-events: none; }
+.prep__text { transition: opacity 0.7s ease; }
+.is-out { opacity: 0; }
+.prep__n { font-family: var(--font-display), serif; font-style: italic; font-size: 40px; color: var(--or); line-height: 1; }
+.prep__text h3 { font-size: clamp(34px, 4vw, 52px); line-height: 1.05; margin-top: 8px; }
+.prep__pour { margin-top: 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--doux); }
+.prep__pour span { transition: color 0.5s ease; }
+.prep__pour span + span::before { content: ' · '; color: var(--doux); }
+.prep__pour span.on { color: var(--verveine); }
+.prep__d { margin-top: 18px; font-size: 19px; line-height: 1.6; color: var(--texte); max-width: 420px; }
+.prep__nav { display: flex; align-items: center; gap: 20px; margin-top: 28px; }
+.prep__nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--or); background: none; color: var(--nuit); font-size: 18px; cursor: pointer; font-family: var(--font-display), serif; }
+.prep__nav button:disabled { opacity: 0.3; cursor: default; }
+.prep__progress { flex: 1; display: flex; gap: 6px; }
+.prep__progress span { flex: 1; height: 2px; background: var(--ligne); transition: background 0.4s; }
+.prep__progress span.past { background: #CDB77E; }
+.prep__progress span.on { background: var(--or); }
+.prep__count { font-family: var(--font-display), serif; font-style: italic; font-size: 20px; min-width: 64px; text-align: right; }
+.prep__count span { color: var(--doux); }
+@media (max-width: 760px) {
+  .prep__track { grid-auto-columns: 86%; column-gap: 16px; }
+  .prep__card { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+  .prep__img { aspect-ratio: 1 / 1; }
+  .prep__d { font-size: 17px; }
+  .prep__n { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { .prep__img, .prep__text { transition: none; } }

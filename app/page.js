@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Medallion from './components/Medallion';
 import TonneauTag from './components/TonneauTag';
 import Lexique from './components/Lexique';
+import Topbar from './components/Topbar';
+import Preparation from './components/Preparation';
+import FriseVigne from './components/FriseVigne';
 import { site } from '../site.config';
 
 const liqueurs = [
@@ -21,7 +24,7 @@ const liqueurs = [
       'Sur cette étiquette, elle fleurit dans la verveine.',
       'Elle ne se cueille pas : elle ne pousse que dans la mémoire.',
     ],
-    morale: 'Ce que le cœur a planté, le temps ne l’arrache pas.',
+    morale: 'Ce que le cœur plante, le temps ne peut l’arracher.',
   },
   {
     id: 'monticello',
@@ -38,7 +41,7 @@ const liqueurs = [
       "Celui-ci passe par une montagne, un oiseau, un visage et une goutte d'eau.",
       'Au bout du chemin : un citron de Corse, et un sourire, légèrement enivré, de mon grand-père.',
     ],
-    morale: 'Les mots qu’on écorche sont souvent ceux qu’on aime le mieux.',
+    morale: 'Les mots qu’on invente sont souvent ceux qu’on retient le mieux.',
   },
   {
     id: 'menthe',
@@ -62,26 +65,38 @@ const liqueurs = [
 // Frise : uniquement des faits donnés par Paul.
 const frise = [
   { quand: 'autrefois', quoi: 'À Vals-près-le-Puy, la belle-mère de Dédé cultive une verveine que chaque automne elle rentre à la cave.' },
-  { quand: '1929', quoi: 'Naissance de Dédé, futur grand amoureux des fables de La Fontaine.' },
-  { quand: 'une vie de jardin', quoi: 'Dédé rachète la maison de sa belle-mère ; la verveine reste. Cinquante étés durant, la passiflore couvre sa terrasse de Saint-Vincent, en Ardèche.' },
-  { quand: 'il y a seize ans', quoi: 'Les ans en étant la cause, Dédé me passe la main. Il ne quittera plus mes gestes des yeux.' },
-  { quand: '2026', quoi: 'La menthe poivrée rejoint la verveine et le citron : naissance de maison arnould.' },
+  { quand: '1929', quoi: 'Naissance d’un des plus grands disciples de La Fontaine.' },
+  { quand: 'une vie de jardin', quoi: 'Dédé rachète la maison de sa belle-mère, et la verveine avec elle. En Ardèche, à Saint-Vincent, une passiflore couvrira sa terrasse cinquante étés durant : c’est elle qui fleurit aujourd’hui sur l’élixir.' },
+  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me passe petit à petit la main sur son jardin, sans jamais quitter mes gestes des yeux.' },
+  { quand: '2026', quoi: 'Naissance de maison arnould.' },
 ];
 
+// Étapes : celles qui ont deux versions (verveine / citron) se relaient comme les mots du lexique.
 const methode = [
-  { n: 'i.', t: 'cueillir', d: "Deux fois l'an, quand l'été s'annonce et quand l'automne hésite, à l'heure où le soleil baisse la voix. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles de verveine' },
-  { n: 'ii.', t: 'râper', d: "Le citron garde son âme dans sa peau. On la lui prend à fleur d'écorce, sans jamais toucher le blanc, qui garde pour lui l'amertume.", img: '/images/rape-citrons.jpg', alt: 'Zestes de citron sur la râpe' },
-  { n: 'iii.', t: 'macérer', d: "Feuilles et zestes s'abandonnent à l'alcool, à l'abri de la lumière. Lentement, ils lui cèdent leur parfum.", img: '/images/mise-en-bouteille.jpg', alt: "Feuilles de verveine dans l'alcool, à l'entonnoir" },
-  { n: 'iv.', t: 'filtrer', d: 'Vient le temps de séparer : le linge retient les feuilles et ne laisse passer que leur souvenir.', img: '/images/filtrage-cotons.jpg', alt: 'La liqueur verte versée sur le linge de filtrage' },
-  { n: 'v.', t: 'sucrer', d: "L'eau et le sucre s'unissent en un sirop clair, parfois relevé de miel de sapin. Il adoucit l'alcool sans rien lui ôter.", img: '/images/sirop.jpg', alt: 'Le sirop de sucre versé de la casserole dans un pichet' },
-  { n: 'vi.', t: 'soutirer', d: 'La liqueur laisse son trouble au fond de la dame-jeanne et repart, plus claire, par le tuyau.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
-  { n: 'vii.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin a commencé.', img: '/images/mise-en-bouteille-entonnoir.jpg', alt: "Bouteille remplie à l'entonnoir, la liqueur verte en strates" },
+  {
+    n: 'i.',
+    variants: [
+      { pour: 'la verveine', t: 'cueillir', d: "Deux fois l'an, quand l'été s'annonce et quand l'automne hésite, à l'heure où le soleil baisse la voix. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles fraîchement cueillies' },
+      { pour: 'le citron', t: 'râper', d: "Le citron garde son âme dans sa peau. On la lui prend à fleur d'écorce, d'un geste qui ne s'apprend qu'à force de saisons.", img: '/images/rape-citrons.jpg', alt: 'Zestes de citron sur la râpe' },
+    ],
+  },
+  {
+    n: 'ii.',
+    variants: [
+      { pour: 'la verveine', t: 'macérer', d: "Les feuilles s'abandonnent à l'alcool, à l'abri de la lumière. Lentement, elles lui cèdent leur parfum.", img: '/images/mise-en-bouteille.jpg', alt: "Feuilles de verveine plongées dans l'alcool" },
+      { pour: 'le citron', t: 'macérer', d: "Les zestes s'abandonnent à l'alcool, à l'abri de la lumière. Lentement, ils lui cèdent leur or et leur parfum.", img: '/images/maceration-zestes.jpg', alt: "Zestes de citron en macération, d'un jaune profond" },
+    ],
+  },
+  { n: 'iii.', t: 'filtrer', d: "Vient le temps de séparer : le linge retient la plante et ne laisse passer que le meilleur de l'alcoolature.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
+  { n: 'iv.', t: 'soutirer', d: 'La liqueur laisse son trouble au fond de la dame-jeanne et repart, plus claire, par le tuyau.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
+  { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, parfois relevé d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool : il en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
+  { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
 ];
 
 const essais = [
   { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-plant-2.jpg' },
-  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Les zestes du monticello, et quelques feuilles du jardin posées par-dessus.', img: '/images/zestes.jpg' },
-  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Une part du sucre cède la place au miel de sapin de Craponne-sur-Arzon : une douceur plus ronde, plus boisée.', img: '/images/vert-coule.jpg' },
+  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Les zestes du monticello, et quelques feuilles du jardin posées par-dessus.', img: '/images/feuilles-zestes.jpg' },
+  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', img: '/images/vert-coule.jpg' },
 ];
 
 const carnet = [
@@ -95,6 +110,7 @@ const lexique = [
   { w: 'monticello', p: 'mɔ̃.ti.tʃɛ.lo', g: 'n. m.', d: ['1. Liqueur de citron de la maison, à la manière du limoncello, mais à la sauce auvergnate : plus forte.', '2. Chez Dédé. Le limoncello lui-même, tel qu’il le prononçait, épris de la Corse sur ses vieux jours. D’où le rébus : mont · Titi · Che · l’eau.'] },
   { w: 'bouture', p: 'bu.tyʁ', g: 'n. f.', d: ['Fragment de plante qui, mis en terre, reprend racine et redonne la plante entière. Notre verveine en descend, depuis quatre générations à présent.'] },
   { w: 'macération', p: 'ma.se.ʁa.sjɔ̃', g: 'n. f.', d: ["Lent tête-à-tête entre la plante et l'alcool. À l'abri de la lumière, la feuille se dénoue et lui transmet, jour après jour, tout ce qu'elle sait de son parfum."] },
+  { w: 'alcoolature', p: 'al.kɔ.la.tyʁ', g: 'n. f.', d: ['Vieux mot d’officine : ce que l’alcool a tiré d’une plante fraîche longuement macérée. L’âme de la liqueur, avant le sucre et le temps.'] },
   { w: 'saints de glace', p: 'sɛ̃ d(ə) glas', g: 'n. m. pl.', d: ['Saint Mamert, saint Pancrace et saint Servais, les 11, 12 et 13 mai, réputés ramener les dernières gelées. Passés ceux-là, la verveine retourne au jardin.'] },
   { w: 'zeste', p: 'zɛst', g: 'n. m.', d: ['Fine écorce colorée des agrumes, où dorment leurs huiles parfumées. On le râpe sans jamais toucher le blanc, qui est amer.'] },
   { w: 'élixir', p: 'e.lik.siʁ', g: 'n. m.', d: ["Autrefois, breuvage d'herboriste tiré des plantes et gardé comme un trésor. Ici, notre verveine la plus intense."] },
@@ -114,21 +130,7 @@ const lexique = [
 export default function Home() {
   return (
     <>
-      <header className="topbar">
-        <a href="#haut" className="topbar__brand" aria-label="maison arnould, retour en haut">
-          <Medallion size={44} />
-          <span>maison arnould</span>
-        </a>
-        <nav aria-label="Navigation principale">
-          <ul className="topbar__nav">
-            <li><a href="#maison">la maison</a></li>
-            <li><a href="#liqueurs">les liqueurs</a></li>
-            <li><a href="#methode">la préparation</a></li>
-            <li><a href="#simples">les simples</a></li>
-            <li><a href="#contact">contact</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Topbar />
 
       <main id="haut">
         {/* ——— Ouverture ——— */}
@@ -140,9 +142,9 @@ export default function Home() {
             <p className="hero__tale">
               Il était une verveine qui refusait l'hiver.<br />
               Chaque automne, avant les premières gelées, on la sortait de terre pour la mettre en pot, que l'on glissait ensuite dans un vieux tonneau, percé pour l'accueillir, dans l'intimité de la cave.<br />
-              L'hiver y sentait le bois mouillé et la citronnelle des feuilles qui séchaient.<br />
+              L'hiver, y sentait le bois mouillé et la citronnelle des feuilles qui séchaient.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
-              Quatre générations l'ont veillée tour à tour ; aucun hiver ne l'a prise.<br />
+              Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
               Dans chaque bouteille, c'est encore elle.
             </p>
           </div>
@@ -150,7 +152,7 @@ export default function Home() {
             <div className="fader">
               <Image src="/images/goulot.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
-            <figcaption>l'été, vu par le goulot</figcaption>
+            <figcaption>par le goulot, un jardin qui ne fane pas</figcaption>
           </figure>
         </section>
 
@@ -160,11 +162,13 @@ export default function Home() {
             <p className="kicker">la maison</p>
             <h2>une histoire <em>de famille</em></h2>
             <p className="maison__intro">
-              Il était une fois, à Vals-près-le-Puy, un jardin qui changeait de mains sans jamais changer d'âme.
-              On s'y passait la verveine comme on se passe un secret, de génération en génération, à voix basse.
-              Aujourd'hui, c'est moi qui taille, qui cueille et qui replante.
+              Il était une fois, à Vals-près-le-Puy, un jardin qui passait de mains en mains, sans jamais changer d'âme.
+              En son cœur, une verveine que chacun, à son tour, a gardée comme on garde une promesse.
+              Aujourd'hui, c'est entre mes mains que celle-ci est taillée, cueillie, bouturée, et replantée.
             </p>
           </div>
+          <div className="frise__wrap">
+          <FriseVigne />
           <ol className="frise">
             {frise.map((f) => (
               <li key={f.quand} className="frise__item">
@@ -174,6 +178,7 @@ export default function Home() {
               </li>
             ))}
           </ol>
+          </div>
         </section>
 
         {/* ——— Les liqueurs ——— */}
@@ -212,34 +217,17 @@ export default function Home() {
               et chaque saison, la plante nous confie un peu plus de ce qu'elle sait.
             </p>
           </div>
-          <ol className="methode__grid">
-            {methode.map((m) => (
-              <li key={m.t} className="step">
-                <div className="step__img">
-                  <Image src={m.img} alt={m.alt} fill sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 300px" />
-                </div>
-                <h3><span>{m.n}</span> {m.t}</h3>
-                <p>{m.d}</p>
-              </li>
-            ))}
-            <li className="step step--miel" aria-label="Le miel de sapin">
-              <p className="miel__mot">miel de sapin <span>craponne-sur-arzon</span></p>
-              <p>
-                Récolté par le père d'un ami, il remplace une part du sucre dans certains essais.
-                Il ne le chasse jamais tout à fait : il lui prête une douceur plus ronde, plus boisée.
-              </p>
-            </li>
-          </ol>
+          <Preparation steps={methode} />
         </section>
 
         {/* ——— Les simples ——— */}
-        <section id="simples" className="simples">
+        <section id="simples" className="simples" data-zone="nuit" data-offset="190">
           <div className="simples__intro">
             <div className="simples__text">
-              <p className="kicker kicker--light">le laboratoire de maison arnould</p>
+              <p className="kicker kicker--light">le laboratoire</p>
               <h2>druide <em>d'aujourd'hui</em></h2>
               <p>
-                Le laboratoire est ma petite officine d'apprenti druide. Les patrimoines anciens du terroir m'ont toujours captivé :
+                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs m'a toujours tenu sous son charme :
                 j'y suis la trace des plantes perdues et des savoirs oubliés, j'exhume les recettes des moines et des herboristes d'antan,
                 tout ce qu'on a laissé s'assoupir. Puis je bats les talus et les lisières, et je rends leur place aux simples que l'on foule sans les voir.
               </p>
@@ -274,7 +262,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="kicker" style={{ marginTop: 28 }}>dans le carnet, pas encore en bouteille</p>
+              <p className="kicker" style={{ marginTop: 28 }}>carnet de paillasse · formules à l'étude</p>
               <ul className="carnet">
                 {carnet.map((c) => (
                   <li key={c.name}><b>{c.name}</b>{c.latin ? <i> {c.latin}</i> : null} · {c.d}</li>
@@ -287,7 +275,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <p className="note">Le druide parle de nature et de savoir-faire, pas de bienfaits : ces liqueurs restent des alcools, à goûter avec modération.</p>
+          <p className="note">Le druide parle de plantes et de gestes anciens, jamais de vertus.</p>
         </section>
 
         {/* ——— Lexique ——— */}
