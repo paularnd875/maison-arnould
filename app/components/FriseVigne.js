@@ -28,6 +28,19 @@ function Passiflore() {
   );
 }
 
+function Citron({ rot = 0 }) {
+  return (
+    <g transform={`rotate(${rot})`}>
+      <path d="M-13,0 C-12,-9 12,-9 13,0 C12,9 -12,9 -13,0 Z" fill="#F1E3A0" stroke={G} strokeWidth="0.9" />
+      <path d="M-13,0 l-3,0 M13,0 l3,0" stroke={G} strokeWidth="1.1" strokeLinecap="round" />
+      <circle cx="-4" cy="-3" r="0.7" fill={G} /><circle cx="3" cy="2" r="0.7" fill={G} /><circle cx="6" cy="-3" r="0.7" fill={G} />
+      <g transform="translate(14,-2) rotate(-40) scale(0.45)">
+        <path d="M0,0 C8,-7 24,-7 34,0 C24,7 8,7 0,0 Z" fill="none" stroke={V} strokeWidth="1.8" />
+      </g>
+    </g>
+  );
+}
+
 function Orn({ left, children, w = 80, h = 60 }) {
   return (
     <svg className="vigne__orn" style={{ left: `${left}%`, width: w, height: h, marginLeft: -w / 2 }} viewBox={`${-w / 2} ${-h / 2} ${w} ${h}`} aria-hidden="true">
@@ -44,26 +57,32 @@ export default function FriseVigne() {
       <svg className="vigne__tige" viewBox="0 0 1000 60" preserveAspectRatio="none">
         <path d={d} fill="none" stroke={V} strokeWidth="1" vectorEffect="non-scaling-stroke" opacity="0.7" />
       </svg>
-      <Orn left={10}>
+      <Orn left={7}>
         <Feuille rot={-28} s={0.8} />
         <g transform="translate(-6,4)"><Feuille rot={150} s={0.7} /></g>
       </Orn>
-      <Orn left={30}>
+      <Orn left={21.5}>
+        <g transform="translate(0,9)"><Citron rot={-12} /></g>
+      </Orn>
+      <Orn left={36}>
         <g transform="translate(-10,0)"><Feuille rot={22} s={0.75} fill="#E6E2B0" /></g>
         <g transform="translate(4,2)"><Feuille rot={-160} s={0.6} /></g>
       </Orn>
       <Orn left={50} w={64} h={64}>
         <Passiflore />
       </Orn>
-      <Orn left={70}>
+      <Orn left={64}>
         <Feuille rot={-20} s={0.8} />
         <g transform="translate(2,4)"><Feuille rot={200} s={0.65} fill="#E6E2B0" /></g>
       </Orn>
-      <Orn left={89}>
+      <Orn left={79}>
         <g transform="translate(-8,0)">
           <path d="M0,0 C4,-9 16,-11 22,-6 C16,1 6,3 0,0 Z" fill="#DDE3B5" stroke={V} strokeWidth="0.9" />
           <path d="M0,0 C4,9 16,11 22,6 C16,-1 6,-3 0,0 Z" fill="none" stroke={V} strokeWidth="0.9" />
         </g>
+      </Orn>
+      <Orn left={91}>
+        <g transform="translate(0,-9)"><Citron rot={14} /></g>
       </Orn>
       <svg className="vigne__fleche" viewBox="0 0 26 20" aria-hidden="true">
         <path d="M0,10 C8,2 18,2 26,10 C18,18 8,18 0,10 Z" fill={G} opacity="0.9" />

@@ -3,78 +3,55 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
-const EVERY = 4200;
-const FADE = 700;
+const LIQUEURS = [
+  { id: 'verveine', label: 'verveine & menthe' },
+  { id: 'citron', label: 'monticello' },
+];
 
-// Une étape : soit fixe, soit en deux versions (verveine / citron) qui se relaient.
-function Step({ step, index, total }) {
-  const variants = step.variants || [step];
-  const [cur, setCur] = useState(0);
-  const [out, setOut] = useState(false);
-
-  useEffect(() => {
-    if (variants.length < 2) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let t2;
-    const t = setInterval(() => {
-      setOut(true);
-      t2 = setTimeout(() => {
-        setCur((c) => (c + 1) % variants.length);
-        setOut(false);
-      }, FADE);
-    }, EVERY + index * 350);
-    return () => {
-      clearInterval(t);
-      clearTimeout(t2);
-    };
-  }, [variants.length, index]);
-
-  const v = variants[cur];
+// Une étape : fixe, ou propre à la liqueur choisie (verveine & menthe / citron).
+function Step({ step, liqueur }) {
+  const v = step.variants ? step.variants[liqueur] : step;
   return (
-    <li className="prep__card" aria-roledescription="étape" aria-label={`${index + 1} sur ${total}`}>
-      <div className={`prep__img${out ? ' is-out' : ''}`}>
-        <Image src={v.img} alt={v.alt} fill sizes="(max-width: 760px) 86vw, 520px" draggable={false} />
+    <li className="prep__step">
+      <div className="prep__img" key={`${step.n}-${v.img}`}>
+        <Image src={v.img} alt={v.alt} fill sizes="(max-width: 760px) 86vw, 460px" draggable={false} />
       </div>
-      <div className={`prep__text${out ? ' is-out' : ''}`}>
-        <p className="prep__n">{step.n}</p>
+      <div className="prep__text" key={`${step.n}-${v.t}-${liqueur}`}>
+        <p className="prep__n">
+          {step.n}
+          {step.variants ? <span className="prep__selon">selon la liqueur</span> : null}
+        </p>
         <h3>{v.t}</h3>
-        {variants.length > 1 ? (
-          <p className="prep__pour">
-            {variants.map((x, i) => (
-              <span key={x.pour} className={i === cur ? 'on' : ''}>{x.pour}</span>
-            ))}
-          </p>
-        ) : null}
         <p className="prep__d">{v.d}</p>
       </div>
     </li>
   );
 }
 
-// Le procédé défile à l'horizontale : au doigt, au pavé tactile, à la souris (cliquer-glisser) ou avec les flèches.
-export default function Preparation({ steps }) {
+// Le procédé en planches de deux étapes, qui défilent à l'horizontale (doigt, pavé tactile, cliquer-glisser, boutons).
+export default function Preparation({ planches }) {
   const track = useRef(null);
   const [pos, setPos] = useState(0);
+  const [liqueur, setLiqueur] = useState('verveine');
+
+  const width = () => {
+    const el = track.current;
+    const card = el.querySelector('.prep__planche');
+    return card.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || '0');
+  };
 
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    const onScroll = () => {
-      const card = el.querySelector('.prep__card');
-      if (!card) return;
-      const w = card.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || '0');
-      const end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
-      setPos(end ? el.children.length - 1 : Math.round(el.scrollLeft / w));
-    };
+    const onScroll = () => setPos(Math.min(planches.length - 1, Math.round(el.scrollLeft / width())));
     el.addEventListener('scroll', onScroll, { passive: true });
 
-    // cliquer-glisser à la souris
     let down = false;
     let x0 = 0;
     let s0 = 0;
     let moved = false;
     const md = (e) => {
-      if (e.pointerType !== 'mouse') return;
+      if (e.pointerType !== 'mouse' || e.target.closest('button')) return;
       down = true;
       moved = false;
       x0 = e.clientX;
@@ -91,11 +68,7 @@ export default function Preparation({ steps }) {
       if (!down) return;
       down = false;
       el.classList.remove('is-drag');
-      if (moved) {
-        const card = el.querySelector('.prep__card');
-        const w = card.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || '0');
-        el.scrollTo({ left: Math.round(el.scrollLeft / w) * w, behavior: 'smooth' });
-      }
+      if (moved) el.scrollTo({ left: Math.round(el.scrollLeft / width()) * width(), behavior: 'smooth' });
     };
     el.addEventListener('pointerdown', md);
     window.addEventListener('pointermove', mm);
@@ -106,31 +79,51 @@ export default function Preparation({ steps }) {
       window.removeEventListener('pointermove', mm);
       window.removeEventListener('pointerup', mu);
     };
-  }, []);
+  }, [planches.length]);
 
-  const go = (d) => {
-    const el = track.current;
-    const card = el.querySelector('.prep__card');
-    const w = card.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || '0');
-    el.scrollTo({ left: Math.max(0, Math.min(steps.length - 1, pos + d)) * w, behavior: 'smooth' });
+  const go = (i) => {
+    const n = Math.max(0, Math.min(planches.length - 1, i));
+    track.current.scrollTo({ left: n * width(), behavior: 'smooth' });
   };
 
   return (
     <div className="prep">
-      <ol className="prep__track" ref={track} tabIndex={0} aria-label="Les étapes de la préparation">
-        {steps.map((s, i) => (
-          <Step key={s.n} step={s} index={i} total={steps.length} />
+      <div className="prep__choix" role="group" aria-label="Choisir la liqueur">
+        <span className="prep__choix-label">la recette de</span>
+        {LIQUEURS.map((l) => (
+          <button key={l.id} type="button" className={liqueur === l.id ? 'on' : ''} aria-pressed={liqueur === l.id} onClick={() => setLiqueur(l.id)}>
+            {l.label}
+          </button>
         ))}
-      </ol>
+      </div>
+
+      <div className="prep__track" ref={track} tabIndex={0} aria-label="Les planches de la préparation">
+        {planches.map((p, i) => (
+          <section key={p.titre} className="prep__planche" aria-label={`Planche ${p.num} : ${p.titre}`}>
+            <p className="prep__planche-titre">
+              <span>planche {p.num}</span> {p.titre}
+            </p>
+            <ol className="prep__steps">
+              {p.steps.map((s) => (
+                <Step key={s.n} step={s} liqueur={liqueur} />
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+
       <div className="prep__nav">
-        <button type="button" onClick={() => go(-1)} disabled={pos <= 0} aria-label="Étape précédente">←</button>
-        <div className="prep__progress" aria-hidden="true">
-          {steps.map((s, i) => (
-            <span key={s.n} className={i === pos ? 'on' : i < pos ? 'past' : ''} />
+        <button type="button" onClick={() => go(pos - 1)} disabled={pos <= 0} aria-label="Planche précédente">←</button>
+        <ol className="prep__sommaire">
+          {planches.map((p, i) => (
+            <li key={p.titre}>
+              <button type="button" className={i === pos ? 'on' : ''} onClick={() => go(i)}>
+                <span>{p.num}</span> {p.titre}
+              </button>
+            </li>
           ))}
-        </div>
-        <p className="prep__count">{steps[pos]?.n} <span>/ {steps[steps.length - 1].n}</span></p>
-        <button type="button" onClick={() => go(1)} disabled={pos >= steps.length - 1} aria-label="Étape suivante">→</button>
+        </ol>
+        <button type="button" onClick={() => go(pos + 1)} disabled={pos >= planches.length - 1} aria-label="Planche suivante">→</button>
       </div>
     </div>
   );
