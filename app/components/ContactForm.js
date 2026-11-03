@@ -36,7 +36,7 @@ export default function ContactForm({ endpoint }) {
   };
 
   if (state === 'ok') {
-    return <p className="form__done">Merci. Votre message est bien arrivé à la maison ; nous vous répondons au plus vite.</p>;
+    return <p className="form__done">Merci. Votre message est bien arrivé à la maison ; je vous réponds au plus vite.</p>;
   }
 
   return (

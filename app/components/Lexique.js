@@ -16,7 +16,7 @@ export default function Lexique({ mots }) {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let t2;
     const t = setInterval(() => {
-      const slot = Math.floor(Math.random() * SLOTS);
+      const slot = 1 + Math.floor(Math.random() * (SLOTS - 1)); // « simples » reste toujours affiché (renvoi depuis le labo)
       setFading(slot);
       t2 = setTimeout(() => {
         setShown((cur) => {

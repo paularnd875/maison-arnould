@@ -52,7 +52,7 @@ export default function AgeGate() {
           </>
         ) : (
           <p id="agegate-title" className="agegate__title">
-            Revenez nous voir plus tard. La verveine, elle, sait attendre.
+            Revenez plus tard. La verveine, elle, sait attendre.
           </p>
         )}
         <p className="agegate__legal">L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>

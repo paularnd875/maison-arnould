@@ -6,6 +6,7 @@ import Topbar from './components/Topbar';
 import Preparation from './components/Preparation';
 import FriseVigne from './components/FriseVigne';
 import ContactForm from './components/ContactForm';
+import Picto from './components/Picto';
 import { site } from '../site.config';
 
 const liqueurs = [
@@ -107,16 +108,16 @@ const planches = [
     num: 'III',
     titre: 'la douceur et le repos',
     steps: [
-      { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, parfois relevé d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool : il en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
-      { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
+      { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, potentiellement agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool : il en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
+      { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
     ],
   },
 ];
 
 const essais = [
-  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune.jpg' },
-  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Les zestes du monticello, et quelques feuilles du jardin posées par-dessus.', img: '/images/feuilles-zestes.jpg' },
-  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', img: '/images/vert-coule.jpg' },
+  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', picto: 'verveine' },
+  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, et quelques feuilles du jardin posées par-dessus.', img: '/images/feuilles-zestes.jpg' },
+  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', picto: 'ruche' },
 ];
 
 const carnet = [
@@ -126,25 +127,26 @@ const carnet = [
 ];
 
 const lexique = [
-  { w: 'simples', p: 'sɛ̃pl', g: 'n. m. pl.', d: ['Vx. Plantes cultivées au jardin des moines, employées seules, telles que la nature les donne. Par ext. Le laboratoire de maison arnould.'] },
+  { w: 'simples', p: 'sɛ̃pl', g: 'n. m. pl.', d: ['Vx. Du Moyen Âge au XVIIIe siècle, les plantes du « jardin des simples » des monastères, employées seules, telles que la nature les donne. Par ext. Le laboratoire de maison arnould.'] },
   { w: 'monticello', p: 'mɔ̃.ti.tʃɛ.lo', g: 'n. m.', d: ['1. Liqueur de citron de la maison, à la manière du limoncello, mais à la sauce auvergnate : plus forte.', '2. Chez Dédé. Le limoncello lui-même, tel qu’il le prononçait, épris de la Corse sur ses vieux jours. D’où le rébus : mont · Titi · Che · l’eau.'] },
-  { w: 'bouture', p: 'bu.tyʁ', g: 'n. f.', d: ['Fragment de plante qui, mis en terre, reprend racine et redonne la plante entière. Notre verveine en descend, depuis quatre générations à présent.'] },
+  { w: 'bouture', p: 'bu.tyʁ', g: 'n. f.', d: ['Fragment de plante qui, mis en terre, reprend racine et redonne la plante entière. La verveine du jardin en descend, depuis quatre générations à présent.'] },
   { w: 'macération', p: 'ma.se.ʁa.sjɔ̃', g: 'n. f.', d: ["Lent tête-à-tête entre la plante et l'alcool. À l'abri de la lumière, la feuille se dénoue et lui transmet, jour après jour, tout ce qu'elle sait de son parfum."] },
   { w: 'alcoolature', p: 'al.kɔ.la.tyʁ', g: 'n. f.', d: ['Vieux mot d’officine : ce que l’alcool a tiré d’une plante fraîche longuement macérée. L’âme de la liqueur, avant le sucre et le temps.'] },
   { w: 'saints de glace', p: 'sɛ̃ d(ə) glas', g: 'n. m. pl.', d: ['Saint Mamert, saint Pancrace et saint Servais, les 11, 12 et 13 mai, réputés ramener les dernières gelées. Passés ceux-là, la verveine retourne au jardin.'] },
   { w: 'zeste', p: 'zɛst', g: 'n. m.', d: ['Fine écorce colorée des agrumes, où dorment leurs huiles parfumées. On le râpe sans jamais toucher le blanc, qui est amer.'] },
-  { w: 'élixir', p: 'e.lik.siʁ', g: 'n. m.', d: ["Autrefois, breuvage d'herboriste tiré des plantes et gardé comme un trésor. Ici, notre verveine la plus intense."] },
+  { w: 'élixir', p: 'e.lik.siʁ', g: 'n. m.', d: ["Autrefois, breuvage d'herboriste tiré des plantes et gardé comme un trésor. Ici, la verveine de la maison, dans sa version la plus intense."] },
   { w: 'dame-jeanne', p: 'dam.ʒan', g: 'n. f.', d: ["Grosse bouteille ventrue, souvent habillée d'osier, où la liqueur repose avant d'être soutirée."] },
+  { w: 'mignonnette', p: 'mi.ɲɔ.nɛt', g: 'n. f.', d: ['1. Petite bouteille de quelques centilitres, réplique en miniature de la grande. Au mariage, on en glisse une près de chaque assiette.', '2. Aussi : poivre grossièrement concassé. Ici, on parle du flacon.'] },
   { w: 'rincette', p: 'ʁɛ̃.sɛt', g: 'n. f. fam.', d: ['Fond d’eau-de-vie versé dans la tasse de café encore tiède, pour la « rincer ». Suivie parfois de la surrincette, et c’est là qu’il faut savoir s’arrêter.'] },
   { w: 'soutirage', p: 'su.ti.ʁaʒ', g: 'n. m.', d: ['Transvaser la liqueur pour la séparer de son dépôt. Un tuyau, une dame-jeanne, un peu de patience.'] },
   { w: 'miellat', p: 'mjɛ.la', g: 'n. m.', d: ["Gouttelettes sucrées laissées sur les aiguilles de sapin par de minuscules insectes. Les abeilles les récoltent : c'est le miel de sapin, sombre et boisé."] },
   { w: 'nemeton', p: 'ne.me.tɔn', g: 'n. m.', d: ['Chez les Gaulois, clairière ou bois sacré où officiaient les druides.'] },
   { w: 'décanter', p: 'de.kɑ̃.te', g: 'v.', d: ['Laisser le temps faire tomber le trouble au fond, pour ne garder que le clair.'] },
-  { w: 'passiflore', p: 'pa.si.flɔʁ', g: 'n. f.', d: ['Liane à la fleur couronnée de filaments, dite aussi fleur de la Passion. Celle de Saint-Vincent fleurit sur notre élixir.'] },
+  { w: 'passiflore', p: 'pa.si.flɔʁ', g: 'n. f.', d: ['Liane à la fleur couronnée de filaments, dite aussi fleur de la Passion. Celle de Saint-Vincent fleurit sur l’élixir.'] },
   { w: 'druide', p: 'dʁɥid', g: 'n. m.', d: ['Chez les Gaulois, prêtre et savant des plantes, qui cueillait le gui à la serpe.'] },
   { w: 'canard', p: 'ka.naʁ', g: 'n. m. fam.', d: ['Morceau de sucre qu’on trempe dans le café ou l’eau-de-vie avant de le croquer, comme le canard plonge la tête sous l’eau.'] },
   { w: 'officine', p: 'ɔ.fi.sin', g: 'n. f.', d: ['Arrière-boutique de l’apothicaire, où l’on préparait les remèdes. Par ext. Le coin du labo où l’apprenti druide fait ses essais.'] },
-  { w: 'tonneau', p: 'tɔ.no', g: 'n. m.', d: ['Fût de bois cerclé. Le nôtre, vieux et percé, abritait la verveine des premières gelées.'] },
+  { w: 'tonneau', p: 'tɔ.no', g: 'n. m.', d: ['Fût de bois cerclé. Celui du jardin, vieux et percé, abritait la verveine des premières gelées.'] },
 ];
 
 export default function Home() {
@@ -242,10 +244,11 @@ export default function Home() {
               <p className="kicker kicker--light">le laboratoire</p>
               <h2>druide <em>d'aujourd'hui</em></h2>
               <p>
-                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs m'a toujours interpellé :
-                j'essaie d'y retracer les plantes perdues et les savoirs oubliés, de retrouver les recettes des moines et des herboristes d'antan,
-                tout ce qu'on a laissé s'assoupir. Puis je bats les talus et les lisières, et je rends leur place aux simples que l'on foule sans les voir.
+                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs m'a toujours interpellé.
+                J'essaie d'y retracer les plantes perdues et savoirs oubliés, de retrouver les recettes des moines et des herboristes d'antan,
+                tout ce qu'on a laissé s'assoupir. Puis je bats les talus et les lisières, et je rends leur place aux <a href="#lexique" className="renvoi">simples<sup>*</sup></a> que l'on foule sans les voir.
               </p>
+              <p className="simples__renvoi"><sup>*</sup> voir le lexique, plus bas.</p>
               <p className="simples__small">Des essais en petites séries, numérotés, qui ne reviennent pas forcément l'année suivante.</p>
             </div>
             <figure className="simples__photo">
@@ -256,9 +259,10 @@ export default function Home() {
           <div className="definition">
             <p className="definition__word">les simples <span>[sɛ̃pl] <i>n. m. pl.</i></span></p>
             <p>
-              <b>1.</b> <i>Vx.</i> Plantes cultivées au jardin des moines, employées seules, telles que la nature les donne. <i>Le jardin des simples.</i><br />
-              <b>2.</b> <i>Par ext.</i> Le laboratoire de maison arnould : cuvées d'essai, en petites séries, de plantes connues depuis des siècles, cueillies par nos
-              aïeux puis délaissées. Oubliées des jardins, arrachées comme mauvaises herbes.
+              <b>1.</b> <i>Vx.</i> Du Moyen Âge au XVIII<sup>e</sup> siècle, nom donné aux plantes que les moines cultivaient dans le <i>jardin des simples</i> de leur monastère.
+              On les disait « simples » parce qu'on les employait seules, telles que la nature les donne, à l'inverse des préparations composées des apothicaires.<br />
+              <b>2.</b> <i>Par ext.</i> Le laboratoire de maison arnould : cuvées d'essai, en petites séries, de plantes connues depuis des siècles, cueillies par les
+              anciens puis délaissées. Oubliées des jardins, arrachées comme mauvaises herbes.
             </p>
           </div>
 
@@ -268,7 +272,7 @@ export default function Home() {
               <ul>
                 {essais.map((e) => (
                   <li key={e.n} className="essai">
-                    <div className="essai__img"><Image src={e.img} alt="" fill sizes="80px" /></div>
+                    <div className="essai__img">{e.img ? <Image src={e.img} alt="" fill sizes="80px" /> : <Picto kind={e.picto} />}</div>
                     <div className="essai__text">
                       <p className="essai__name">{e.name} <i>{e.latin}</i></p>
                       <p>{e.d}</p>
@@ -294,7 +298,7 @@ export default function Home() {
         </section>
 
         {/* ——— Lexique ——— */}
-        <section className="lexique" aria-labelledby="lexique-title">
+        <section id="lexique" className="lexique" aria-labelledby="lexique-title">
           <div className="section-head">
             <p className="kicker">petit lexique</p>
             <h2 id="lexique-title">les mots <em>de la maison</em></h2>
@@ -308,8 +312,8 @@ export default function Home() {
           <Medallion size={96} ink="#F4ECD6" gold="#E8C547" />
           <h2>écrire à la maison</h2>
           <p className="contact__intro">
-            Pour Noël, un mariage (en bidon ou en mignonnettes), un anniversaire ou un cadeau qui a une histoire :
-            écrivez-nous, nous verrons ensemble ce que le jardin peut offrir.
+            Un Noël à préparer, un mariage à fêter, en bidon ou en mignonnettes, un anniversaire, ou simplement un présent qui raconte quelque chose ?
+            Écrivez-moi : je vous dirai ce que le jardin peut offrir cette saison.
           </p>
           <ContactForm endpoint={site.formEndpoint} />
           {site.email ? <p className="contact__alt">ou directement : <a href={`mailto:${site.email}`}>{site.email}</a></p> : null}

@@ -75,13 +75,13 @@ export default function FriseVigne() {
         <Feuille rot={-20} s={0.8} />
         <g transform="translate(2,4)"><Feuille rot={200} s={0.65} fill="#E6E2B0" /></g>
       </Orn>
-      <Orn left={79}>
+      <Orn left={72.5}>
         <g transform="translate(-8,0)">
           <path d="M0,0 C4,-9 16,-11 22,-6 C16,1 6,3 0,0 Z" fill="#DDE3B5" stroke={V} strokeWidth="0.9" />
           <path d="M0,0 C4,9 16,11 22,6 C16,-1 6,-3 0,0 Z" fill="none" stroke={V} strokeWidth="0.9" />
         </g>
       </Orn>
-      <Orn left={91}>
+      <Orn left={92}>
         <g transform="translate(0,-9)"><Citron rot={14} /></g>
       </Orn>
       <svg className="vigne__fleche" viewBox="0 0 26 20" aria-hidden="true">
