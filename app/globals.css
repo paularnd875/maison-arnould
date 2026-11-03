@@ -309,3 +309,82 @@ html[data-age='ok'] .agegate { display: none; }
 .contact p { color: #E2DCC4; }
 .contact a { color: var(--citron); }
 .footer { border-top: 1px solid #3E4A2A; }
+
+/* ——— V2 : légendes synchronisées avec le fondu ——— */
+.fader__captions { display: grid; margin-top: 12px; font-size: 13px; font-style: italic; color: var(--doux); }
+.fader__captions span { grid-area: 1 / 1; animation: fade 14s ease-in-out infinite; }
+.fader__captions span:nth-child(2) { animation-delay: -7s; }
+@media (prefers-reduced-motion: reduce) {
+  .fader__captions span { animation: none; }
+  .fader__captions span:nth-child(2) { opacity: 0; }
+}
+
+/* ——— La maison : frise chronologique, alignée sur la grille ——— */
+.maison { display: block; max-width: none; padding: clamp(56px, 8vw, 104px) 0; border-top: 1px solid var(--ligne); }
+.maison__head { max-width: var(--max); margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+.maison__intro { margin-top: 20px; max-width: 760px; color: var(--texte); }
+.frise {
+  max-width: var(--max);
+  margin: 48px auto 0;
+  padding: 0 clamp(16px, 4vw, 48px);
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0 20px;
+  position: relative;
+}
+.frise::before { content: ''; position: absolute; left: clamp(16px, 4vw, 48px); right: clamp(16px, 4vw, 48px); top: 6px; height: 1px; background: var(--or); opacity: 0.6; }
+.frise__item { position: relative; padding-top: 28px; }
+.frise__dot { position: absolute; top: 0; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--creme); border: 1.5px solid var(--or); }
+.frise__quand { font-family: var(--font-display), serif; font-size: 22px; line-height: 1.15; color: var(--verveine); margin-bottom: 8px; }
+.frise__quoi { font-size: 15px; line-height: 1.5; color: var(--texte); }
+@media (max-width: 1000px) {
+  .frise { grid-template-columns: 1fr; gap: 0; }
+  .frise::before { top: 0; bottom: 0; left: calc(clamp(16px, 4vw, 48px) + 6px); right: auto; width: 1px; height: auto; }
+  .frise__item { padding: 0 0 28px 36px; }
+  .frise__dot { top: 4px; }
+}
+
+/* ——— La préparation : 6 étapes + miel ——— */
+.methode__intro { margin-top: 18px; max-width: 760px; color: var(--texte); }
+.methode__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
+.miel {
+  max-width: var(--max);
+  margin: 48px auto 0;
+  padding: 28px clamp(16px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  border-top: 1px solid var(--ligne);
+  border-bottom: 1px solid var(--ligne);
+}
+.miel__mot { font-family: var(--font-display), serif; font-style: italic; font-size: 32px; line-height: 1.1; color: #8A6A1C; }
+.miel__mot span { display: block; font-family: var(--font-text), serif; font-style: normal; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--doux); margin-top: 6px; }
+.miel p:last-child { color: var(--texte); max-width: 720px; }
+@media (max-width: 900px) {
+  .methode__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .miel { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 520px) { .methode__grid { grid-template-columns: 1fr; } }
+
+/* ——— Le labo : bloc aligné sur la grille, photo dans le cadre ——— */
+.simples__intro {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px);
+  background: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: clamp(32px, 6vw, 88px);
+  align-items: center;
+}
+.simples__intro > .simples__text { padding: 0; }
+.simples__photo { min-height: 0; aspect-ratio: 3 / 4; }
+@media (max-width: 900px) {
+  .simples__intro { grid-template-columns: 1fr; }
+  .simples__photo { max-width: 420px; min-height: 0; }
+}
+
+/* ——— Lexique ——— */
+.lexique__intro { margin-top: 16px; color: #E2DCC4; max-width: 640px; }
