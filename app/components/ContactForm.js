@@ -16,8 +16,9 @@ const OCCASIONS = [
   'autre chose',
 ];
 
-// Formulaire compatible Formspree / Web3Forms : l'adresse d'envoi se règle dans site.config.js (formEndpoint).
-export default function ContactForm({ endpoint }) {
+// Formulaire envoyé via Web3Forms : la clé se règle dans site.config.js (web3formsKey).
+export default function ContactForm({ accessKey }) {
+  const endpoint = accessKey ? 'https://api.web3forms.com/submit' : '';
   const [state, setState] = useState('idle'); // idle | sending | ok | error
 
   const submit = async (e) => {
@@ -31,7 +32,7 @@ export default function ContactForm({ endpoint }) {
       const r = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...data, _subject: `maison arnould · ${data.occasion || 'message'}`, _template: 'table', _captcha: 'false' }),
+        body: JSON.stringify({ access_key: accessKey, subject: `maison arnould · ${data.occasion || 'message'}`, from_name: 'site maison arnould', ...data }),
       });
       const j = await r.json().catch(() => ({}));
       console.info('[maison-arnould] formulaire', r.status, j);

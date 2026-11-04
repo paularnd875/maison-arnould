@@ -8,6 +8,7 @@ export const site = {
   // Laisser vide tant que l'adresse n'existe pas : le site affichera « bientôt ».
   email: '',
   instagram: '', // ex. 'https://www.instagram.com/maison.arnould'
-  formEndpoint: 'https://formsubmit.co/ajax/paularnould9@gmail.com', // ex. 'https://formspree.io/f/xxxxxxx' — le formulaire de contact s'active dès qu'il est renseigné
+  // Clé Web3Forms (gratuite, reçue par e-mail sur web3forms.com) : le formulaire s'active dès qu'elle est renseignée.
+  web3formsKey: '',
   city: 'Le Puy-en-Velay',
 };
