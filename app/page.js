@@ -85,7 +85,7 @@ const planches = [
         n: 'i.',
         variants: {
           verveine: { t: 'cueillir', d: "Deux fois l'an, quand l'été s'annonce et quand l'automne hésite, quand la lumière du soir dore les feuilles. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles fraîchement cueillies' },
-          citron: { t: 'râper', d: "Le citron garde son âme dans sa peau. On la lui prend à fleur d'écorce, d'un geste qui ne s'apprend qu'à force de saisons.", img: '/images/rape-citrons.jpg', alt: 'Zestes de citron sur la râpe' },
+          citron: { t: 'râper', d: "Le citron garde son âme dans sa peau. On la lui prend à fleur d'écorce, d'un geste qui ne s'apprend qu'à force de saisons.", img: '/images/raper-citrons.jpg', alt: 'Zestes de citron sur la râpe' },
         },
       },
       {
@@ -105,7 +105,7 @@ const planches = [
         n: 'iii.',
         variants: {
           verveine: { t: 'filtrer', d: "Le linge garde les feuilles, pâles et vidées de tout ce qu'elles avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
-          citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
+          citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zestes.jpg', alt: 'Les zestes pressés dans le linge' },
         },
       },
       { n: 'iv.', t: 'soutirer', d: 'La liqueur dépose ses brumes au fond de la dame-jeanne, puis s’en va par le tuyau, limpide comme au premier matin.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
@@ -116,7 +116,13 @@ const planches = [
     titre: 'la douceur et le repos',
     steps: [
       { n: 'v.', t: 'sucrer', d: "L'eau et les cristaux de sucre s'unissent en un sirop incolore, parfois agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
-      { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
+      {
+        n: 'vi.',
+        variants: {
+          verveine: { t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/bouteille-couchant.jpg', alt: 'Une bouteille de liqueur verte levée vers le soleil couchant' },
+          citron: { t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, en dégradé de couleurs' },
+        },
+      },
     ],
   },
 ];
@@ -183,7 +189,7 @@ export default function Home() {
             <div className="fader">
               <Image src="/images/goulot-v2.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
-            <figcaption>citron verveiné, par le goulot</figcaption>
+            <figcaption>essai n° 2, vu du goulot</figcaption>
           </figure>
         </section>
 
@@ -262,7 +268,7 @@ export default function Home() {
               <p className="simples__small">Des essais en petites séries, numérotés ; certains ne connaîtront qu'une saison, comme les fleurs qui les ont faits.</p>
             </div>
             <figure className="simples__photo">
-              <Image src="/images/labo-bouteilles-vif.jpg" alt="Bouteilles de verveine en macération, rangées à la cave" fill sizes="(max-width: 900px) 100vw, 460px" />
+              <Image src="/images/labo-potion.jpg" alt="Une liqueur vert profond qui tourbillonne au fond du verre" fill sizes="(max-width: 900px) 100vw, 460px" />
             </figure>
           </div>
 
@@ -328,7 +334,12 @@ export default function Home() {
             La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
             une liqueur à rêver, une plante oubliée à me souffler, ou quelque vieux grimoire à me faire découvrir.
           </p>
-          <ContactForm accessKey={site.web3formsKey} />
+          <div className="contact__grid">
+            <figure className="contact__photo">
+              <Image src="/images/verveine-plant.jpg" alt="La verveine au jardin, dans la lumière d'automne" fill sizes="(max-width: 900px) 100vw, 420px" />
+            </figure>
+            <ContactForm accessKey={site.web3formsKey} />
+          </div>
           {site.email ? <p className="contact__alt">ou directement : <a href={`mailto:${site.email}`}>{site.email}</a></p> : null}
           <p className="contact__alt">{site.instagram ? <a href={site.instagram}>instagram · maison.arnould</a> : 'Instagram : bientôt.'}</p>
         </section>

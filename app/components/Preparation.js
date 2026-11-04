@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const LIQUEURS = [
   { id: 'verveine', label: 'verveine & menthe' },
-  { id: 'citron', label: 'monticello' },
+  { id: 'citron', label: 'citron' },
 ];
 
 // Une étape : fixe, ou propre à la liqueur choisie (verveine & menthe / citron).
@@ -89,7 +89,7 @@ export default function Preparation({ planches }) {
   return (
     <div className="prep">
       <div className="prep__choix" role="group" aria-label="Choisir la liqueur">
-        <span className="prep__choix-label">la recette de</span>
+        <span className="prep__choix-label">la recette de liqueur de</span>
         {LIQUEURS.map((l) => (
           <button key={l.id} type="button" className={liqueur === l.id ? 'on' : ''} aria-pressed={liqueur === l.id} onClick={() => setLiqueur(l.id)}>
             {l.label}
