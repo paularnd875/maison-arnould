@@ -603,3 +603,17 @@ html[data-age='ok'] .agegate { display: none; }
 .simples a:hover, .lexique a:hover, .contact a:hover { color: var(--citron); }
 .carnet li { display: flex; align-items: center; gap: 16px; padding: 6px 0; }
 .carnet .picto { flex: none; width: 52px; height: 52px; }
+
+/* ——— V8 ——— */
+.hero__echo { font-style: italic; color: var(--verveine); }
+.essais { align-items: center; }
+.carnet__bloc { max-width: var(--max); margin: 48px auto 0; padding: 32px clamp(16px, 4vw, 48px) 0; }
+.carnet__bloc .kicker { border-top: 1px solid #3E4A2A; padding-top: 28px; }
+.carnet__bloc .carnet { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.carnet__bloc .carnet li { display: flex; align-items: flex-start; gap: 16px; padding: 0; }
+.carnet__bloc .carnet span { display: flex; flex-direction: column; gap: 2px; font-size: 16px; line-height: 1.45; }
+.carnet__bloc .carnet b { font-size: 21px; }
+.carnet__bloc .carnet i { font-size: 15px; }
+@media (max-width: 900px) { .carnet__bloc .carnet { grid-template-columns: 1fr; gap: 20px; } }
+.simples > .note { max-width: var(--max); margin-left: auto; margin-right: auto; padding-left: clamp(16px, 4vw, 48px); padding-right: clamp(16px, 4vw, 48px); box-sizing: border-box; }
+.carnet__bloc { padding-top: 0; }

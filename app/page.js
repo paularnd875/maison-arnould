@@ -115,9 +115,9 @@ const planches = [
 ];
 
 const essais = [
-  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune.jpg' },
+  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-claire.jpg' },
   { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, et quelques feuilles du jardin posées par-dessus.', img: '/images/feuilles-zestes.jpg' },
-  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', img: '/images/vert-coule.jpg' },
+  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', img: '/images/verveine-jaune.jpg' },
 ];
 
 const carnet = [
@@ -167,14 +167,14 @@ export default function Home() {
               L'hiver, y sentait le bois mouillé et la citronnelle des feuilles qui séchaient.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
               Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
-              Dans chaque bouteille, c'est encore elle, que l'hiver n'a pas pris.
+              Dans chaque bouteille, c'est encore elle, <em className="hero__echo">que l'hiver n'a pas pris</em>.
             </p>
           </div>
           <figure className="hero__media">
             <div className="fader">
               <Image src="/images/goulot.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
-            <figcaption>par le goulot, un jardin qui ne fane pas</figcaption>
+            <figcaption>citron verveiné, par le goulot</figcaption>
           </figure>
         </section>
 
@@ -244,7 +244,7 @@ export default function Home() {
               <p className="kicker kicker--light">le laboratoire</p>
               <h2>druide <em>d'aujourd'hui</em></h2>
               <p>
-                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs m'a toujours habité.
+                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs n'a jamais cessé de m'appeler.
                 J'essaie d'y retracer les plantes perdues et savoirs oubliés, de retrouver les recettes des moines et des herboristes d'antan,
                 tout ce qu'on a laissé s'assoupir. Puis je bats les talus et les lisières, et je rends leur place aux <a href="#lexique" className="renvoi">simples<sup>*</sup></a> que l'on foule sans les voir.
               </p>
@@ -280,18 +280,20 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="kicker" style={{ marginTop: 28 }}>carnet de paillasse · formules à l'étude</p>
-              <ul className="carnet">
-                {carnet.map((c) => (
-                  <li key={c.name}><Picto kind={c.picto} /><span><b>{c.name}</b>{c.latin ? <i> {c.latin}</i> : null} · {c.d}</span></li>
-                ))}
-              </ul>
             </div>
             <div className="essais__tags" aria-label="Étiquettes d'essai">
               {essais.map((e) => (
                 <TonneauTag key={e.n} id={e.n} n={e.n} name={e.name} latin={e.latin} />
               ))}
             </div>
+          </div>
+          <div className="carnet__bloc">
+            <p className="kicker">carnet de paillasse · formules à l'étude</p>
+            <ul className="carnet">
+              {carnet.map((c) => (
+                <li key={c.name}><Picto kind={c.picto} /><span><b>{c.name}</b>{c.latin ? <i>{c.latin}</i> : null}{c.d}</span></li>
+              ))}
+            </ul>
           </div>
           <p className="note">Le druide parle de plantes et de gestes anciens, jamais de vertus.</p>
         </section>
