@@ -670,3 +670,9 @@ html[data-age='ok'] .agegate { display: none; }
 .essais__list > ul { display: grid; grid-auto-rows: 1fr; }
 .carnet__suite { margin-top: 28px; font-family: 'La Belle Aurore', cursive; font-size: 22px; color: var(--tilleul); }
 .carnet__suite { font-family: var(--font-text), serif; font-style: italic; font-size: 17px; }
+/* champs préremplis par le navigateur : garder le fond vert nuit */
+.form input:-webkit-autofill, .form input:-webkit-autofill:hover, .form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--creme); caret-color: var(--creme);
+  -webkit-box-shadow: 0 0 0 1000px var(--nuit) inset; box-shadow: 0 0 0 1000px var(--nuit) inset;
+  transition: background-color 9999s ease-out;
+}

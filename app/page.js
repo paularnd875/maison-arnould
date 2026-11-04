@@ -181,7 +181,7 @@ export default function Home() {
           </div>
           <figure className="hero__media">
             <div className="fader">
-              <Image src="/images/goulot.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
+              <Image src="/images/goulot-v2.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
             <figcaption>citron verveiné, par le goulot</figcaption>
           </figure>

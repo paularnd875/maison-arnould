@@ -24,7 +24,7 @@ export const metadata = {
     siteName: site.name,
     locale: 'fr_FR',
     type: 'website',
-    images: [{ url: '/images/goulot.jpg', width: 900, height: 1200, alt: 'Feuilles de verveine et zestes de citron vus par le goulot' }],
+    images: [{ url: '/images/goulot-v2.jpg', width: 1086, height: 1448, alt: 'Feuilles de verveine et zestes de citron vus par le goulot' }],
   },
   icons: { icon: '/icon.svg' },
 };

@@ -34,10 +34,12 @@ export default function ContactForm({ endpoint }) {
         body: JSON.stringify({ ...data, _subject: `maison arnould · ${data.occasion || 'message'}`, _template: 'table', _captcha: 'false' }),
       });
       const j = await r.json().catch(() => ({}));
+      console.info('[maison-arnould] formulaire', r.status, j);
       if (!r.ok || j.success === false || j.success === 'false') throw new Error(String(r.status));
       form.reset();
       setState('ok');
     } catch (err) {
+      console.warn('[maison-arnould] formulaire', err);
       setState('error');
     }
   };
