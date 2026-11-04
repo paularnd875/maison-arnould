@@ -7,6 +7,7 @@ const OCCASIONS = [
   'un cadeau de Noël',
   'un mariage (bidon ou mignonnettes)',
   'un anniversaire, une fête',
+  'un accord mets et digestifs',
   'une collaboration',
   'une idée de liqueur',
   'une plante oubliée à souffler',
@@ -30,9 +31,10 @@ export default function ContactForm({ endpoint }) {
       const r = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, _subject: `maison arnould · ${data.occasion || 'message'}`, _template: 'table', _captcha: 'false' }),
       });
-      if (!r.ok) throw new Error(String(r.status));
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || j.success === false || j.success === 'false') throw new Error(String(r.status));
       form.reset();
       setState('ok');
     } catch (err) {

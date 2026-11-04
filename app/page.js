@@ -71,7 +71,7 @@ const frise = [
   { quand: '1929', quoi: 'Naissance d’un des plus grands disciples de La Fontaine.' },
   { quand: 'puis', quoi: 'Dédé rachète la maison de sa belle-mère, à Vals ; la verveine change de mains, sans changer de terre.' },
   { quand: 'plus tard', quoi: 'En Ardèche, à Saint-Vincent, une passiflore couvre sa terrasse cinquante étés durant. C’est elle qui a inspiré l’élixir d’aujourd’hui.' },
-  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me passe la main, mais pas la parole : chaque geste, il me le raconte, et plutôt deux fois qu’une.' },
+  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me confie son jardin, et chaque geste avec, quitte à me les confier deux fois.' },
   { quand: '2026', quoi: 'Naissance de maison arnould.' },
 ];
 
@@ -123,7 +123,7 @@ const planches = [
 
 const essais = [
   { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-bidon4.jpg' },
-  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Le soleil de Corse dans les zestes, et la verveine du jardin pour en adoucir l’éclat.', img: '/images/feuilles-zestes.jpg' },
+  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes gorgés du soleil de Corse, rafraîchis par la verveine du jardin.', img: '/images/feuilles-zestes.jpg' },
   { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret : il lui prête un voile d’ambre, et la verveine y prend comme un accent de sous-bois.', img: '/images/verveine-ruches.jpg' },
 ];
 
@@ -173,7 +173,7 @@ export default function Home() {
             <p className="hero__tale">
               Il était une verveine qui refusait l'hiver.<br />
               Chaque automne, avant les premières gelées, on la rempotait dans un vieux tonneau percé, au secret d'une cave.<br />
-              L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles desséchées encore accrochées à la tige, que les pousses nouvelles finiraient par chasser.<br />
+              L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles desséchées encore accrochées à sa tige.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
               Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
               Dans chaque bouteille, c'est encore elle, <em className="hero__echo">que l'hiver n'a pas pris</em>.
@@ -321,7 +321,7 @@ export default function Home() {
           <h2>écrire à la maison</h2>
           <p className="contact__intro">
             Un Noël à préparer, un mariage à fêter<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>, un anniversaire,
-            ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
+            un accord mets et digestifs, ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
           </p>
           <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
           <p className="contact__intro">

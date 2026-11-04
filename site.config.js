@@ -8,6 +8,6 @@ export const site = {
   // Laisser vide tant que l'adresse n'existe pas : le site affichera « bientôt ».
   email: '',
   instagram: '', // ex. 'https://www.instagram.com/maison.arnould'
-  formEndpoint: '', // ex. 'https://formspree.io/f/xxxxxxx' — le formulaire de contact s'active dès qu'il est renseigné
+  formEndpoint: 'https://formsubmit.co/ajax/paularnould9@gmail.com', // ex. 'https://formspree.io/f/xxxxxxx' — le formulaire de contact s'active dès qu'il est renseigné
   city: 'Le Puy-en-Velay',
 };
