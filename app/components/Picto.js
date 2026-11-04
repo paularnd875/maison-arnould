@@ -35,6 +35,17 @@ export default function Picto({ kind, size = 52 }) {
             <Ovale x={52} y={40} r={-30} s={0.9} />
             <Ovale x={50} y={52} r={200} s={0.85} fill="rgba(201,206,122,0.2)" />
           </>
+        ) : kind === 'champignon' ? (
+          <>
+            <path d="M18,40 C18,22 30,14 40,14 C50,14 62,22 62,40 C52,37 28,37 18,40 Z" stroke={OR} fill="rgba(232,197,71,0.15)" />
+            {[26, 32, 38, 44, 50, 56].map((x) => (
+              <path key={x} d={`M${x},38.5 L${40 + (x - 40) * 0.45},43`} stroke={OR} strokeWidth="0.6" />
+            ))}
+            <path d="M35,42 C34,52 33,62 31,70 L49,70 C47,62 46,52 45,42" stroke={VERT} />
+            <path d="M34,52 C38,54 42,54 46,52" stroke={VERT} strokeWidth="0.7" />
+            <circle cx="32" cy="26" r="1.6" stroke={OR} /><circle cx="46" cy="22" r="1.2" stroke={OR} /><circle cx="52" cy="30" r="1.4" stroke={OR} />
+            <path d="M24,70 C30,67 50,67 58,70" stroke={VERT} strokeWidth="0.7" />
+          </>
         ) : kind === 'pouliot' ? (
           <>
             <path d="M40,72 L40,10" stroke={VERT} />

@@ -665,3 +665,6 @@ html[data-age='ok'] .agegate { display: none; }
 .hero__media figcaption { text-align: right; }
 .carnet__bloc .carnet li { align-items: stretch; }
 .carnet__bloc .carnet .picto { width: 88px; height: auto; min-height: 88px; align-self: stretch; }
+.carnet__bloc .carnet { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px; }
+@media (max-width: 900px) { .carnet__bloc .carnet { grid-template-columns: 1fr; } }
+.essais__list > ul { display: grid; grid-auto-rows: 1fr; }
