@@ -7,6 +7,11 @@ const OCCASIONS = [
   'un cadeau de Noël',
   'un mariage (bidon ou mignonnettes)',
   'un anniversaire, une fête',
+  'une collaboration',
+  'une idée de liqueur',
+  'une plante oubliée à souffler',
+  'un livre sur les druides à conseiller',
+  'la recette de la potion magique',
   'autre chose',
 ];
 

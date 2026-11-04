@@ -597,3 +597,9 @@ html[data-age='ok'] .agegate { display: none; }
 @media (min-width: 1001px) {
   .frise__item:nth-child(6) { margin-left: 34%; }
 }
+
+/* ——— V7 ——— */
+.renvoi:hover, .renvoi:focus { color: inherit; }
+.simples a:hover, .lexique a:hover, .contact a:hover { color: var(--citron); }
+.carnet li { display: flex; align-items: center; gap: 16px; padding: 6px 0; }
+.carnet .picto { flex: none; width: 52px; height: 52px; }

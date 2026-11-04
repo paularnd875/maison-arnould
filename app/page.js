@@ -68,9 +68,9 @@ const liqueurs = [
 const frise = [
   { quand: 'autrefois', quoi: 'À Vals-près-le-Puy, la belle-mère de Dédé cultive une verveine que chaque automne elle rentre à la cave.' },
   { quand: '1929', quoi: 'Naissance d’un des plus grands disciples de La Fontaine.' },
-  { quand: 'puis', quoi: 'Dédé rachète la maison de sa belle-mère, à Vals ; la verveine reste au jardin.' },
-  { quand: 'plus tard', quoi: 'En Ardèche, à Saint-Vincent, une passiflore couvre sa terrasse cinquante étés durant. C’est elle qui fleurit aujourd’hui sur l’élixir.' },
-  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé m’abandonne son jardin saison après saison, comme on transmet un savoir : par le regard, plus que par les mots.' },
+  { quand: 'puis', quoi: 'Dédé rachète la maison de sa belle-mère, à Vals ; la verveine change de mains, sans changer de terre.' },
+  { quand: 'plus tard', quoi: 'En Ardèche, à Saint-Vincent, une passiflore couvre sa terrasse cinquante étés durant. C’est elle qui a inspiré l’élixir d’aujourd’hui.' },
+  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé m’abandonne son jardin saison après saison, et m’apprend à sa manière : sans leçons, d’un simple regard posé sur mes gestes.' },
   { quand: '2026', quoi: 'Naissance de maison arnould.' },
 ];
 
@@ -108,22 +108,22 @@ const planches = [
     num: 'III',
     titre: 'la douceur et le repos',
     steps: [
-      { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, potentiellement agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool : il en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
+      { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, potentiellement agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
       { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
     ],
   },
 ];
 
 const essais = [
-  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', picto: 'verveine' },
+  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune.jpg' },
   { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, et quelques feuilles du jardin posées par-dessus.', img: '/images/feuilles-zestes.jpg' },
-  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', picto: 'ruche' },
+  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', img: '/images/vert-coule.jpg' },
 ];
 
 const carnet = [
-  { name: 'verveine-menthe', d: 'les deux plantes de la maison réunies' },
-  { name: 'menthe pouliot', latin: 'Mentha pulegium', d: 'la menthe sauvage des prés humides' },
-  { name: 'ortie', latin: 'Urtica dioica', d: 'la plus mal aimée des herbes' },
+  { name: 'verveine-menthe', d: 'les deux plantes de la maison réunies', picto: 'verveine-menthe' },
+  { name: 'menthe pouliot', latin: 'Mentha pulegium', d: 'la menthe sauvage des prés humides', picto: 'pouliot' },
+  { name: 'ortie', latin: 'Urtica dioica', d: 'la plus mal aimée des herbes', picto: 'ortie' },
 ];
 
 const lexique = [
@@ -167,7 +167,7 @@ export default function Home() {
               L'hiver, y sentait le bois mouillé et la citronnelle des feuilles qui séchaient.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
               Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
-              Dans chaque bouteille, c'est encore elle.
+              Dans chaque bouteille, c'est encore elle, que l'hiver n'a pas pris.
             </p>
           </div>
           <figure className="hero__media">
@@ -230,8 +230,8 @@ export default function Home() {
             <p className="kicker">la préparation</p>
             <h2>à quatre <em>mains</em></h2>
             <p className="methode__intro">
-              Ici, la liqueur se fait à quatre mains : celles de ma mère et les miennes. On cueille au même rang, on râpe à la même table,
-              et les gestes se répondent sans qu'on ait besoin de se les dire.
+              Ici, la liqueur se fait à quatre mains : celles de ma mère et les miennes. Côte à côte, au jardin comme à la table,
+              nos gestes se répondent sans qu'on ait besoin de se les dire.
             </p>
           </div>
           <Preparation planches={planches} />
@@ -244,7 +244,7 @@ export default function Home() {
               <p className="kicker kicker--light">le laboratoire</p>
               <h2>druide <em>d'aujourd'hui</em></h2>
               <p>
-                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs m'a toujours interpellé.
+                Le laboratoire est ma petite officine d'apprenti druide. L'héritage des terroirs m'a toujours habité.
                 J'essaie d'y retracer les plantes perdues et savoirs oubliés, de retrouver les recettes des moines et des herboristes d'antan,
                 tout ce qu'on a laissé s'assoupir. Puis je bats les talus et les lisières, et je rends leur place aux <a href="#lexique" className="renvoi">simples<sup>*</sup></a> que l'on foule sans les voir.
               </p>
@@ -259,8 +259,7 @@ export default function Home() {
           <div className="definition">
             <p className="definition__word">les simples <span>[sɛ̃pl] <i>n. m. pl.</i></span></p>
             <p>
-              <b>1.</b> <i>Vx.</i> Du Moyen Âge au XVIII<sup>e</sup> siècle, nom donné aux plantes que les moines cultivaient dans le <i>jardin des simples</i> de leur monastère.
-              On les disait « simples » parce qu'on les employait seules, telles que la nature les donne, à l'inverse des préparations composées des apothicaires.<br />
+              <b>1.</b> <i>Vx.</i> Du Moyen Âge au XVIII<sup>e</sup> siècle, plantes cultivées par les moines au <i>jardin des simples</i>, ainsi nommées parce qu'on les employait seules, telles que la nature les donne.<br />
               <b>2.</b> <i>Par ext.</i> Le laboratoire de maison arnould : cuvées d'essai, en petites séries, de plantes connues depuis des siècles, cueillies par les
               anciens puis délaissées. Oubliées des jardins, arrachées comme mauvaises herbes.
             </p>
@@ -284,7 +283,7 @@ export default function Home() {
               <p className="kicker" style={{ marginTop: 28 }}>carnet de paillasse · formules à l'étude</p>
               <ul className="carnet">
                 {carnet.map((c) => (
-                  <li key={c.name}><b>{c.name}</b>{c.latin ? <i> {c.latin}</i> : null} · {c.d}</li>
+                  <li key={c.name}><Picto kind={c.picto} /><span><b>{c.name}</b>{c.latin ? <i> {c.latin}</i> : null} · {c.d}</span></li>
                 ))}
               </ul>
             </div>
@@ -313,7 +312,11 @@ export default function Home() {
           <h2>écrire à la maison</h2>
           <p className="contact__intro">
             Un Noël à préparer, un mariage à fêter, en bidon ou en mignonnettes, un anniversaire, ou simplement un présent qui raconte quelque chose ?
-            Écrivez-moi : je vous dirai ce que le jardin peut offrir cette saison.
+            Écrivez-moi : je vous dirai ce que le jardin peut offrir en cette saison.
+          </p>
+          <p className="contact__intro">
+            Ma porte est aussi ouverte à une collaboration, une idée de liqueur, une plante oubliée à me souffler
+            ou un bon livre sur les druides. Pour la recette de la potion magique, en revanche, il faudra repasser.
           </p>
           <ContactForm endpoint={site.formEndpoint} />
           {site.email ? <p className="contact__alt">ou directement : <a href={`mailto:${site.email}`}>{site.email}</a></p> : null}

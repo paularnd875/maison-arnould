@@ -1,27 +1,65 @@
-// Petits dessins au trait pour les essais sans photo.
-export default function Picto({ kind }) {
-  const or = '#E8C547';
-  const vert = '#C9CE7A';
+// Petits dessins au trait (or et tilleul sur vert nuit) pour le carnet de paillasse.
+const OR = '#E8C547';
+const VERT = '#C9CE7A';
+
+function Lanceole({ x, y, r, s = 1, c = OR, fill = 'none' }) {
   return (
-    <svg className="picto" viewBox="0 0 80 80" aria-hidden="true">
+    <g transform={`translate(${x},${y}) rotate(${r}) scale(${s})`}>
+      <path d="M0,0 C6,-5 17,-5 24,0 C17,5 6,5 0,0 Z" stroke={c} fill={fill} />
+      <path d="M1,0 L22,0" stroke={c} strokeWidth="0.6" />
+    </g>
+  );
+}
+
+function Ovale({ x, y, r, s = 1, c = VERT, fill = 'none' }) {
+  // feuille de menthe : ovale, bord légèrement denté
+  return (
+    <g transform={`translate(${x},${y}) rotate(${r}) scale(${s})`}>
+      <path d="M0,0 C3,-7 9,-9 13,-8 l1,1.5 l1.5,-0.5 l1,1.6 l1.6,0 l0.8,1.8 l1.6,0.4 C20,-1 19,1 17,2.5 C12,7 4,6 0,0 Z" stroke={c} fill={fill} />
+      <path d="M1,0 L17,-2" stroke={c} strokeWidth="0.6" />
+    </g>
+  );
+}
+
+export default function Picto({ kind, size = 52 }) {
+  return (
+    <svg className="picto" viewBox="0 0 80 80" width={size} height={size} aria-hidden="true">
       <rect x="0.5" y="0.5" width="79" height="79" fill="none" stroke="#4A5634" />
-      {kind === 'verveine' ? (
-        <g fill="none" strokeWidth="1.1">
-          <path d="M40,70 C40,50 41,32 44,12" stroke={vert} />
-          {[[42, 22, -38], [43, 22, 140], [41, 36, -30], [42, 36, 150], [40.5, 50, -24], [41, 50, 156]].map(([x, y, r], i) => (
-            <g key={i} transform={`translate(${x},${y}) rotate(${r})`}>
-              <path d="M0,0 C6,-5 17,-5 24,0 C17,5 6,5 0,0 Z" stroke={i % 2 ? vert : or} fill={i < 2 ? 'rgba(232,197,71,0.18)' : 'none'} />
-            </g>
-          ))}
-        </g>
-      ) : (
-        <g fill="none" strokeWidth="1.1" stroke={or}>
-          {[[30, 30], [44, 30], [23, 42], [37, 42], [51, 42], [30, 54], [44, 54]].map(([x, y], i) => (
-            <path key={i} d={`M${x},${y - 8} l7,4 v8 l-7,4 l-7,-4 v-8 Z`} fill={i === 3 ? 'rgba(232,197,71,0.25)' : 'none'} />
-          ))}
-          <path d="M58,22 c3,-4 8,-3 8,1 c0,3 -5,4 -8,-1 Z M58,22 c-1,-5 3,-8 6,-6" stroke={vert} />
-        </g>
-      )}
+      <g fill="none" strokeWidth="1.1">
+        {kind === 'verveine-menthe' ? (
+          <>
+            <path d="M32,70 C32,52 30,34 26,14" stroke={OR} />
+            <Lanceole x={30} y={26} r={-120} s={0.8} />
+            <Lanceole x={31} y={40} r={-60} s={0.8} fill="rgba(232,197,71,0.18)" />
+            <path d="M48,70 C48,56 50,42 54,30" stroke={VERT} />
+            <Ovale x={52} y={40} r={-30} s={0.9} />
+            <Ovale x={50} y={52} r={200} s={0.85} fill="rgba(201,206,122,0.2)" />
+          </>
+        ) : kind === 'pouliot' ? (
+          <>
+            <path d="M40,72 L40,10" stroke={VERT} />
+            {[18, 32, 46, 60].map((y, i) => (
+              <g key={y}>
+                <Ovale x={40} y={y} r={-20} s={0.55} />
+                <Ovale x={40} y={y} r={200} s={0.55} />
+                {i < 3 ? <circle cx="40" cy={y + 7} r="4.2" stroke={OR} strokeDasharray="1.4 1.2" fill={i === 1 ? 'rgba(232,197,71,0.2)' : 'none'} /> : null}
+              </g>
+            ))}
+          </>
+        ) : (
+          <>
+            <path d="M40,72 L40,10" stroke={VERT} />
+            {[[22, -40], [22, 220], [42, -35], [42, 215]].map(([y, r], i) => (
+              <g key={i} transform={`translate(40,${y}) rotate(${r})`}>
+                <path d="M0,0 C4,-6 8,-8 11,-8 l1,-2 l1.5,2 l2,-1.5 l0.6,2.5 l2.4,-0.6 l-0.2,2.6 l2.4,0.6 l-1.2,2.2 l2,1.4 C18,6 8,6 0,0 Z" stroke={i % 2 ? OR : VERT} fill={i === 2 ? 'rgba(201,206,122,0.2)' : 'none'} />
+              </g>
+            ))}
+            {[30, 50, 58].map((y) => (
+              <path key={y} d={`M40,${y} l-6,4 M40,${y} l6,4`} stroke={OR} strokeWidth="0.8" strokeDasharray="1 1.4" />
+            ))}
+          </>
+        )}
+      </g>
     </svg>
   );
 }
