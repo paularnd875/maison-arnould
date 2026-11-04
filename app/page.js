@@ -71,7 +71,7 @@ const frise = [
   { quand: '1929', quoi: 'Naissance d’un des plus grands disciples de La Fontaine.' },
   { quand: 'puis', quoi: 'Dédé rachète la maison de sa belle-mère, à Vals ; la verveine change de mains, sans changer de terre.' },
   { quand: 'plus tard', quoi: 'En Ardèche, à Saint-Vincent, une passiflore couvre sa terrasse cinquante étés durant. C’est elle qui a inspiré l’élixir d’aujourd’hui.' },
-  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me passe la main. Il m’apprend tout, et me le redit souvent : on ne sait jamais, avec les jeunes jardiniers.' },
+  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me passe la main, mais pas la parole : chaque geste, il me le raconte, et plutôt deux fois qu’une.' },
   { quand: '2026', quoi: 'Naissance de maison arnould.' },
 ];
 
@@ -84,7 +84,7 @@ const planches = [
       {
         n: 'i.',
         variants: {
-          verveine: { t: 'cueillir', d: "Deux fois l'an, quand l'été s'annonce et quand l'automne hésite, au moment où le soleil s'incline sur le jardin. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles fraîchement cueillies' },
+          verveine: { t: 'cueillir', d: "Deux fois l'an, quand l'été s'annonce et quand l'automne hésite, quand la lumière du soir dore les feuilles. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles fraîchement cueillies' },
           citron: { t: 'râper', d: "Le citron garde son âme dans sa peau. On la lui prend à fleur d'écorce, d'un geste qui ne s'apprend qu'à force de saisons.", img: '/images/rape-citrons.jpg', alt: 'Zestes de citron sur la râpe' },
         },
       },
@@ -115,22 +115,22 @@ const planches = [
     num: 'III',
     titre: 'la douceur et le repos',
     steps: [
-      { n: 'v.', t: 'sucrer', d: "L'eau et le sucre cristal s'unissent en un sirop incolore, parfois agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
+      { n: 'v.', t: 'sucrer', d: "L'eau et les cristaux de sucre s'unissent en un sirop incolore, parfois agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
       { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
     ],
   },
 ];
 
 const essais = [
-  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-bidon3.jpg' },
-  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Le soleil de Corse dans les zestes, l’ombre du jardin dans quelques feuilles de verveine.', img: '/images/feuilles-zestes.jpg' },
+  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-bidon4.jpg' },
+  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Le soleil de Corse dans les zestes, et la verveine du jardin pour en adoucir l’éclat.', img: '/images/feuilles-zestes.jpg' },
   { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret : il lui prête un voile d’ambre, et la verveine y prend comme un accent de sous-bois.', img: '/images/verveine-ruches.jpg' },
 ];
 
 const carnet = [
   { name: 'verveine-menthe', latin: 'Aloysia citrodora · Mentha × piperita', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
   { name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage, ', rature: 'plus sage', fix: 'plus vive', apres: ' que sa cousine poivrée' },
-  { name: 'liqueur de champignon', latin: 'espèce encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
+  { name: 'liqueur de champignon', latin: 'espèces encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
   { name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
 ];
 
@@ -172,7 +172,7 @@ export default function Home() {
             <p className="hero__tagline">{site.tagline}</p>
             <p className="hero__tale">
               Il était une verveine qui refusait l'hiver.<br />
-              Chaque automne, avant les premières gelées, on la rempotait dans un vieux tonneau percé, qui la laissait respirer, dans l'intimité d'une cave.<br />
+              Chaque automne, avant les premières gelées, on la rempotait dans un vieux tonneau percé, au secret d'une cave.<br />
               L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles desséchées encore accrochées à la tige, que les pousses nouvelles finiraient par chasser.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
               Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
@@ -300,6 +300,7 @@ export default function Home() {
           <div className="carnet__bloc">
             <p className="kicker">carnet de paillasse · formules à l'étude</p>
             <Carnet items={carnet} />
+            <p className="carnet__suite">D'autres pages restent à écrire ; le carnet, lui, n'est jamais tout à fait refermé.</p>
           </div>
           <p className="note">Si la nature nous a confié ces plantes, c’est qu’il nous revient de les comprendre : le druide les interroge, les éprouve, et cherche patiemment ce que chacune a de meilleur à offrir.</p>
         </section>
@@ -320,7 +321,7 @@ export default function Home() {
           <h2>écrire à la maison</h2>
           <p className="contact__intro">
             Un Noël à préparer, un mariage à fêter<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>, un anniversaire,
-            ou une histoire à offrir ? Il y a toujours, au fond de la cave, de quoi y répondre.
+            ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
           </p>
           <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
           <p className="contact__intro">

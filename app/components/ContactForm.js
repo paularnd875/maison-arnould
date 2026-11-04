@@ -71,7 +71,7 @@ export default function ContactForm({ endpoint }) {
       <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="form__hp" aria-hidden="true" />
       <p className="form__rgpd">Vos coordonnées servent uniquement à vous répondre. Elles ne sont ni conservées au-delà, ni transmises.</p>
       <button type="submit" className="btn btn--solid" disabled={!endpoint || state === 'sending'}>
-        {state === 'sending' ? 'envoi…' : endpoint ? 'envoyer' : 'ouverture très prochaine'}
+        {state === 'sending' ? 'envoi…' : 'envoyer'}
       </button>
       {state === 'error' ? <p className="form__err">L'envoi n'a pas abouti. Réessayez dans un instant.</p> : null}
     </form>

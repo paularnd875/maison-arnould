@@ -668,3 +668,4 @@ html[data-age='ok'] .agegate { display: none; }
 .carnet__bloc .carnet { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px; }
 @media (max-width: 900px) { .carnet__bloc .carnet { grid-template-columns: 1fr; } }
 .essais__list > ul { display: grid; grid-auto-rows: 1fr; }
+.carnet__suite { margin-top: 28px; font-family: 'La Belle Aurore', cursive; font-size: 22px; color: var(--tilleul); }
