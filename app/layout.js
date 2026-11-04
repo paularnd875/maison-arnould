@@ -5,6 +5,7 @@ import '@fontsource/eb-garamond/400.css';
 import '@fontsource/eb-garamond/400-italic.css';
 import '@fontsource/eb-garamond/500.css';
 import '@fontsource/courier-prime/400.css';
+import '@fontsource/la-belle-aurore/400.css';
 import './globals.css';
 import AgeGate from './components/AgeGate';
 import { site } from '../site.config';

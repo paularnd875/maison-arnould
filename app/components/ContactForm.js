@@ -10,7 +10,7 @@ const OCCASIONS = [
   'une collaboration',
   'une idée de liqueur',
   'une plante oubliée à souffler',
-  'un livre sur les druides à conseiller',
+  'un grimoire à me faire découvrir',
   'la recette de la potion magique',
   'autre chose',
 ];
@@ -65,8 +65,8 @@ export default function ContactForm({ endpoint }) {
         </select>
       </label>
       <label>
-        <span>votre message</span>
-        <textarea name="message" rows={5} required placeholder="La date, le nombre de convives ou de bouteilles, la liqueur qui vous tente…" />
+        <span>votre mot</span>
+        <textarea name="message" rows={5} required placeholder="Racontez-moi l’occasion, la saison, la liqueur qui vous fait de l’œil… le reste, on le trouvera ensemble." />
       </label>
       <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="form__hp" aria-hidden="true" />
       <p className="form__rgpd">Vos coordonnées servent uniquement à vous répondre. Elles ne sont ni conservées au-delà, ni transmises.</p>

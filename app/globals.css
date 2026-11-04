@@ -617,3 +617,39 @@ html[data-age='ok'] .agegate { display: none; }
 @media (max-width: 900px) { .carnet__bloc .carnet { grid-template-columns: 1fr; gap: 20px; } }
 .simples > .note { max-width: var(--max); margin-left: auto; margin-right: auto; padding-left: clamp(16px, 4vw, 48px); padding-right: clamp(16px, 4vw, 48px); box-sizing: border-box; }
 .carnet__bloc { padding-top: 0; }
+
+/* ——— V9 ——— */
+/* essais : blocs de hauteur égale, nom latin sur sa propre ligne */
+.essai { min-height: 132px; align-items: center; }
+.essai__name i { display: block; font-size: 15px; line-height: 1.3; margin-top: 2px; }
+.essai__text p:last-child { margin-top: 6px; }
+
+/* carnet qui s'écrit */
+.carnet .picto * { stroke-dasharray: 220; stroke-dashoffset: 220; }
+.carnet .picto rect { stroke-dasharray: none; stroke-dashoffset: 0; }
+.carnet .carnet__encre { clip-path: inset(0 100% 0 0); }
+.carnet s { text-decoration: none; position: relative; color: inherit; }
+.carnet s::after { content: ''; position: absolute; left: -2px; right: -2px; top: 55%; height: 1.5px; background: var(--citron); transform: scaleX(0); transform-origin: left; transform: scaleX(0) rotate(-3deg); }
+.carnet__rature { position: relative; display: inline-block; margin-right: 4px; }
+.carnet__main { position: absolute; left: 0; bottom: 70%; white-space: nowrap; font-family: 'La Belle Aurore', cursive; font-size: 22px; color: var(--citron); opacity: 0; transform: translateY(4px) rotate(-4deg); }
+.carnet__bloc .carnet li { padding-top: 14px; }
+.carnet.is-ecrit .picto * { animation: trace 1.6s ease forwards; animation-delay: calc(var(--i) * 1.1s); }
+.carnet.is-ecrit .carnet__encre { animation: encre 1.4s steps(28) forwards; animation-delay: calc(var(--i) * 1.1s + 0.4s); }
+.carnet.is-ecrit s::after { animation: rature 0.35s ease-out forwards; animation-delay: calc(var(--i) * 1.1s + 1.9s); }
+.carnet.is-ecrit .carnet__main { animation: main 0.6s ease-out forwards; animation-delay: calc(var(--i) * 1.1s + 2.2s); }
+@keyframes trace { to { stroke-dashoffset: 0; } }
+@keyframes encre { to { clip-path: inset(0 0 0 0); } }
+@keyframes rature { to { transform: scaleX(1) rotate(-3deg); } }
+@keyframes main { to { opacity: 1; transform: translateY(0) rotate(-4deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .carnet .picto * { stroke-dashoffset: 0; animation: none !important; }
+  .carnet .carnet__encre { clip-path: none; animation: none !important; }
+  .carnet s::after { transform: scaleX(1) rotate(-3deg); animation: none !important; }
+  .carnet__main { opacity: 1; animation: none !important; }
+}
+
+.renvoi--doux { border-bottom: 0; }
+.contact__note { font-size: 13px; font-style: italic; color: #A9AE8C !important; margin-top: -4px; }
+.carnet__bloc .carnet span.carnet__d, .carnet__bloc .carnet span.carnet__rature, .carnet__bloc .carnet span.carnet__main { display: inline; flex-direction: initial; }
+.carnet__bloc .carnet span.carnet__rature { display: inline; margin-right: 0; }
+.carnet__bloc .carnet span.carnet__main { display: inline-block; position: static; margin-left: 8px; font-size: 23px; line-height: 1; vertical-align: -2px; }
