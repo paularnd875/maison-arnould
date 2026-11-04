@@ -101,7 +101,7 @@ const planches = [
     num: 'II',
     titre: 'le temps de séparer',
     steps: [
-      { n: 'iii.', t: 'filtrer', d: "Le linge retient la dépouille des feuilles et des zestes, pâlie, vidée de tout ce qu'elle avait à dire, et ne laisse filer que leur essence.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
+      { n: 'iii.', t: 'filtrer', d: "Le linge retient la dépouille des feuilles et des zestes, pâlie, vidée de tout ce qu'elle avait à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
       { n: 'iv.', t: 'soutirer', d: 'La liqueur laisse son trouble au fond de la dame-jeanne et repart, plus claire, par le tuyau.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
     ],
   },
@@ -116,15 +116,15 @@ const planches = [
 ];
 
 const essais = [
-  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-claire.jpg' },
-  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, que coiffent quelques feuilles du jardin.', img: '/images/feuilles-zestes.jpg' },
+  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-bidon.jpg' },
+  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, sur lesquels la verveine du jardin pose quelques feuilles, comme une main sur l’épaule.', img: '/images/feuilles-zestes.jpg' },
   { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine y prend comme un accent de sous-bois.', img: '/images/verveine-ruches.jpg' },
 ];
 
 const carnet = [
-  { name: 'verveine-menthe', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
+  { name: 'verveine-menthe', latin: 'Aloysia citrodora · Mentha × piperita', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
   { name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage qui chassait les ', rature: 'poux', fix: 'puces', apres: '' },
-  { name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mauvaise', fix: 'mal aimée', apres: '' },
+  { name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
 ];
 
 const lexique = [
@@ -166,7 +166,7 @@ export default function Home() {
             <p className="hero__tale">
               Il était une verveine qui refusait l'hiver.<br />
               Chaque automne, avant les premières gelées, on la sortait de terre pour la mettre en pot, que l'on glissait ensuite dans un vieux tonneau, percé pour l'accueillir, dans l'intimité d'une cave.<br />
-              L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles desséchées.<br />
+              L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles desséchées encore accrochées à la tige, que les pousses nouvelles finiraient par chasser.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
               Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
               Dans chaque bouteille, c'est encore elle, <em className="hero__echo">que l'hiver n'a pas pris</em>.
@@ -187,8 +187,8 @@ export default function Home() {
             <h2>une histoire <em>de famille</em></h2>
             <p className="maison__intro">
               Il était une fois, à Vals-près-le-Puy, un jardin qui passait de mains en mains, sans jamais changer d'âme.
-              En son cœur, une verveine que chacun, à son tour, a gardée comme on garde une promesse.
-              Aujourd'hui, c'est entre mes mains que celle-ci est taillée, cueillie, bouturée, et replantée.
+              En son cœur, une verveine que chacun, à son tour, a gardée, comme on garde une promesse.
+              Aujourd'hui, c'est entre mes mains qu'elle est taillée, cueillie, bouturée, et replantée.
             </p>
           </div>
           <div className="frise__wrap">
@@ -233,7 +233,7 @@ export default function Home() {
             <h2>à quatre <em>mains</em></h2>
             <p className="methode__intro">
               Ici, la liqueur se fait à quatre mains : celles de ma mère et les miennes. Côte à côte, au jardin comme à l'officine,
-              nos gestes se répondent sans qu'on ait besoin de se les dire.
+              nos gestes se répondent, sans même avoir à se les dire.
             </p>
           </div>
           <Preparation planches={planches} />
@@ -246,7 +246,7 @@ export default function Home() {
               <p className="kicker kicker--light">le laboratoire</p>
               <h2>druide <em>d'aujourd'hui</em></h2>
               <p>
-                Le laboratoire est ma petite officine d'apprenti druide. Ici, au pays des volcans, les Vellaves vénéraient, dit-on, les pierres et les sources
+                Le laboratoire est ma petite officine d'apprenti druide. Ici, au pays des volcans, les Vellaves vénéraient, dit-on, les pierres et les sources,
                 bien avant qu'on y bâtisse des cathédrales. Cet héritage, volcanique et spirituel, m'habite depuis toujours.
                 J'essaie d'y retracer les plantes perdues et les gestes que plus personne ne transmet, de retrouver les recettes des moines et des herboristes d'antan,
                 ces secrets que le temps a recouverts de mousse. Puis je bats les talus et les lisières, et je rends leur place aux <a href="#lexique" className="renvoi">simples<sup>*</sup></a> que l'on foule sans les voir.
@@ -255,7 +255,7 @@ export default function Home() {
               <p className="simples__small">Des essais en petites séries, numérotés ; certains ne connaîtront qu'une saison, comme les fleurs qui les ont faits.</p>
             </div>
             <figure className="simples__photo">
-              <Image src="/images/maceration-bouteilles.jpg" alt="Bouteilles de verveine en macération, rangées à la cave" fill sizes="(max-width: 900px) 100vw, 460px" />
+              <Image src="/images/labo-bouteilles.jpg" alt="Bouteilles de verveine en macération, rangées à la cave" fill sizes="(max-width: 900px) 100vw, 460px" />
             </figure>
           </div>
 
@@ -313,7 +313,7 @@ export default function Home() {
           <h2>écrire à la maison</h2>
           <p className="contact__intro">
             Un Noël à préparer, un mariage<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a> à fêter, un anniversaire,
-            ou un cadeau qui porte une histoire ? Je vous dirai volontiers ce que le jardin peut offrir en cette saison.
+            ou l'envie d'offrir un peu de ce jardin ? Selon la saison, il aura sûrement de quoi vous répondre.
           </p>
           <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
           <p className="contact__intro">

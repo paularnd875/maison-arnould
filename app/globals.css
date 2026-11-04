@@ -660,3 +660,8 @@ html[data-age='ok'] .agegate { display: none; }
 .carnet__bloc .carnet span.carnet__main { position: absolute; left: 2px; top: 88%; margin-left: 0; }
 .carnet__bloc .carnet .carnet__d { display: inline-block; padding-bottom: 22px; }
 @keyframes encre { to { clip-path: inset(-20% -60% -60% 0); } }
+
+/* ——— V10 ——— */
+.hero__media figcaption { text-align: right; }
+.carnet__bloc .carnet li { align-items: stretch; }
+.carnet__bloc .carnet .picto { width: 88px; height: auto; min-height: 88px; align-self: stretch; }

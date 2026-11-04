@@ -66,7 +66,7 @@ export default function ContactForm({ endpoint }) {
       </label>
       <label>
         <span>votre mot</span>
-        <textarea name="message" rows={5} required placeholder="Racontez-moi l’occasion, la saison, la liqueur qui vous fait de l’œil… le reste, on le trouvera ensemble." />
+        <textarea name="message" rows={5} required placeholder="Racontez-moi l’occasion, la saison, la liqueur qui vous fait de l’œil… le reste, nous le trouverons ensemble." />
       </label>
       <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="form__hp" aria-hidden="true" />
       <p className="form__rgpd">Vos coordonnées servent uniquement à vous répondre. Elles ne sont ni conservées au-delà, ni transmises.</p>
