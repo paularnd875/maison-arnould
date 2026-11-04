@@ -116,7 +116,7 @@ const planches = [
 ];
 
 const essais = [
-  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-bidon.jpg' },
+  { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-bidon2.jpg' },
   { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, sur lesquels la verveine du jardin pose quelques feuilles, comme une main sur l’épaule.', img: '/images/feuilles-zestes.jpg' },
   { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine y prend comme un accent de sous-bois.', img: '/images/verveine-ruches.jpg' },
 ];
