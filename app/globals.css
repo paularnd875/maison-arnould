@@ -653,3 +653,5 @@ html[data-age='ok'] .agegate { display: none; }
 .carnet__bloc .carnet span.carnet__d, .carnet__bloc .carnet span.carnet__rature, .carnet__bloc .carnet span.carnet__main { display: inline; flex-direction: initial; }
 .carnet__bloc .carnet span.carnet__rature { display: inline; margin-right: 0; }
 .carnet__bloc .carnet span.carnet__main { display: inline-block; position: static; margin-left: 8px; font-size: 23px; line-height: 1; vertical-align: -2px; }
+.prep__nav > button:disabled { visibility: hidden; }
+.contact__note { margin: -6px 0 4px; }

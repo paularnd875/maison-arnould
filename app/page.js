@@ -71,7 +71,7 @@ const frise = [
   { quand: '1929', quoi: 'Naissance d’un des plus grands disciples de La Fontaine.' },
   { quand: 'puis', quoi: 'Dédé rachète la maison de sa belle-mère, à Vals ; la verveine change de mains, sans changer de terre.' },
   { quand: 'plus tard', quoi: 'En Ardèche, à Saint-Vincent, une passiflore couvre sa terrasse cinquante étés durant. C’est elle qui a inspiré l’élixir d’aujourd’hui.' },
-  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé m’abandonne son jardin saison après saison. Il m’enseigne tout de vive voix, et le répète volontiers, comme pour être sûr que rien ne se perde.' },
+  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me passe la main. Il m’apprend tout, deux fois plutôt qu’une.' },
   { quand: '2026', quoi: 'Naissance de maison arnould.' },
 ];
 
@@ -101,7 +101,7 @@ const planches = [
     num: 'II',
     titre: 'le temps de séparer',
     steps: [
-      { n: 'iii.', t: 'filtrer', d: "Le linge retient le marc, ce qu'il reste des feuilles et des zestes quand ils ont tout donné, et ne laisse filer que leur esprit.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
+      { n: 'iii.', t: 'filtrer', d: "Le linge retient la dépouille des feuilles et des zestes, pâlie, vidée de tout ce qu'elle avait à dire, et ne laisse filer que leur essence.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
       { n: 'iv.', t: 'soutirer', d: 'La liqueur laisse son trouble au fond de la dame-jeanne et repart, plus claire, par le tuyau.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
     ],
   },
@@ -109,7 +109,7 @@ const planches = [
     num: 'III',
     titre: 'la douceur et le repos',
     steps: [
-      { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, potentiellement agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
+      { n: 'v.', t: 'sucrer', d: "L'eau et le saccharose s'unissent en un sirop incolore, parfois agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
       { n: 'vi.', t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, du vert profond au blanc' },
     ],
   },
@@ -117,14 +117,14 @@ const planches = [
 
 const essais = [
   { n: '01', name: 'verveine jaune', latin: 'Aloysia citrodora', d: 'Plus douce et plus ronde, à la manière des liqueurs jaunes des monastères.', img: '/images/verveine-jaune-claire.jpg' },
-  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, et quelques feuilles du jardin posées par-dessus.', img: '/images/feuilles-zestes.jpg' },
-  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine en revient avec des airs de sous-bois.', img: '/images/verveine-ruches.jpg' },
+  { n: '02', name: 'citron verveiné', latin: 'Citrus limon · Aloysia citrodora', d: 'Des zestes de citrons de Corse, que coiffent quelques feuilles du jardin.', img: '/images/feuilles-zestes.jpg' },
+  { n: '03', name: 'verveine des ruches', latin: 'Aloysia citrodora · miel de sapin', d: 'Un miel de sapin des hauteurs de Craponne s’y glisse en secret ; la verveine y prend comme un accent de sous-bois.', img: '/images/verveine-ruches.jpg' },
 ];
 
 const carnet = [
   { name: 'verveine-menthe', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
-  { name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage des prés ', rature: 'secs', fix: 'humides', apres: '' },
-  { name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'la plus ', rature: 'mauvaise', fix: 'mal aimée', apres: ' des herbes' },
+  { name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage qui chassait les ', rature: 'poux', fix: 'puces', apres: '' },
+  { name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mauvaise', fix: 'mal aimée', apres: '' },
 ];
 
 const lexique = [
@@ -132,8 +132,8 @@ const lexique = [
   { w: 'monticello', p: 'mɔ̃.ti.tʃɛ.lo', g: 'n. m.', d: ['1. Liqueur de citron de la maison, à la manière du limoncello, mais à la sauce auvergnate : plus forte.', '2. Chez Dédé. Le limoncello lui-même, tel qu’il le prononçait, épris de la Corse sur ses vieux jours. D’où le rébus : mont · Titi · Che · l’eau.'] },
   { w: 'bouture', p: 'bu.tyʁ', g: 'n. f.', d: ['Fragment de plante qui, mis en terre, reprend racine et redonne la plante entière. La verveine du jardin en descend, depuis quatre générations à présent.'] },
   { w: 'macération', p: 'ma.se.ʁa.sjɔ̃', g: 'n. f.', d: ["Lent tête-à-tête entre la plante et l'alcool. À l'abri de la lumière, la feuille se dénoue et lui transmet, jour après jour, tout ce qu'elle sait de son parfum."] },
-  { w: 'marc', p: 'maʁ', g: 'n. m.', d: ['Ce qui reste des feuilles et des zestes quand l’alcool leur a tout pris. Le linge le retient ; la liqueur, elle, s’en va.'] },
-  { w: 'esprit', p: 'ɛs.pʁi', g: 'n. m.', d: ['Chez les alchimistes, la part subtile et volatile d’une matière, celle qu’on cherchait à capturer. On disait « esprit-de-vin » pour l’alcool.'] },
+  { w: 'marc', p: 'maʁ', g: 'n. m.', d: ['Ce qui reste des feuilles et des zestes quand l’alcool leur a tout pris : une dépouille pâle, sans parfum ni saveur. Le linge la retient ; la liqueur, elle, s’en va.'] },
+  { w: 'essence', p: 'e.sɑ̃s', g: 'n. f.', d: ['Ce qu’une plante a de plus intime : son parfum, sa saveur, ce qui demeure quand on lui a ôté tout le reste.'] },
   { w: 'saints de glace', p: 'sɛ̃ d(ə) glas', g: 'n. m. pl.', d: ['Saint Mamert, saint Pancrace et saint Servais, les 11, 12 et 13 mai, réputés ramener les dernières gelées. Passés ceux-là, la verveine retourne au jardin.'] },
   { w: 'zeste', p: 'zɛst', g: 'n. m.', d: ['Fine écorce colorée des agrumes, où dorment leurs huiles parfumées. On le râpe sans jamais toucher le blanc, qui est amer.'] },
   { w: 'élixir', p: 'e.lik.siʁ', g: 'n. m.', d: ["Autrefois, breuvage d'herboriste tiré des plantes et gardé comme un trésor. Ici, la verveine de la maison, dans sa version la plus intense."] },
@@ -166,7 +166,7 @@ export default function Home() {
             <p className="hero__tale">
               Il était une verveine qui refusait l'hiver.<br />
               Chaque automne, avant les premières gelées, on la sortait de terre pour la mettre en pot, que l'on glissait ensuite dans un vieux tonneau, percé pour l'accueillir, dans l'intimité d'une cave.<br />
-              L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles qui séchaient.<br />
+              L'hiver, y sentait le bois mouillé et la citronnelle, des feuilles desséchées.<br />
               Passés les saints de glace, on la rendait au soleil.<br />
               Quatre générations l'ont veillée tour à tour ; jamais elle n'a péri.<br />
               Dans chaque bouteille, c'est encore elle, <em className="hero__echo">que l'hiver n'a pas pris</em>.
@@ -248,7 +248,7 @@ export default function Home() {
               <p>
                 Le laboratoire est ma petite officine d'apprenti druide. Ici, au pays des volcans, les Vellaves vénéraient, dit-on, les pierres et les sources
                 bien avant qu'on y bâtisse des cathédrales. Cet héritage, volcanique et spirituel, m'habite depuis toujours.
-                J'essaie d'y retracer les plantes perdues et savoirs oubliés, de retrouver les recettes des moines et des herboristes d'antan,
+                J'essaie d'y retracer les plantes perdues et les gestes que plus personne ne transmet, de retrouver les recettes des moines et des herboristes d'antan,
                 ces secrets que le temps a recouverts de mousse. Puis je bats les talus et les lisières, et je rends leur place aux <a href="#lexique" className="renvoi">simples<sup>*</sup></a> que l'on foule sans les voir.
               </p>
               <p className="simples__renvoi"><sup>*</sup> voir le lexique, plus bas.</p>
@@ -294,7 +294,7 @@ export default function Home() {
             <p className="kicker">carnet de paillasse · formules à l'étude</p>
             <Carnet items={carnet} />
           </div>
-          <p className="note">Le druide raconte les plantes ; il ne leur prête aucun pouvoir, sinon celui de faire se souvenir.</p>
+          <p className="note">Chaque plante a son caractère, ses usages et ses légendes : le druide les raconte, sans jamais leur faire de promesses.</p>
         </section>
 
         {/* ——— Lexique ——— */}
@@ -313,13 +313,13 @@ export default function Home() {
           <h2>écrire à la maison</h2>
           <p className="contact__intro">
             Un Noël à préparer, un mariage<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a> à fêter, un anniversaire,
-            ou simplement un présent qui raconte quelque chose ? Il suffit d'un mot, et je vous dirai ce que le jardin peut offrir en cette saison.
+            ou un cadeau qui porte une histoire ? Je vous dirai volontiers ce que le jardin peut offrir en cette saison.
           </p>
+          <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
           <p className="contact__intro">
             La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
             une liqueur à rêver, une plante oubliée à me souffler, ou quelque vieux grimoire à me faire découvrir.
           </p>
-          <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
           <ContactForm endpoint={site.formEndpoint} />
           {site.email ? <p className="contact__alt">ou directement : <a href={`mailto:${site.email}`}>{site.email}</a></p> : null}
           <p className="contact__alt">{site.instagram ? <a href={site.instagram}>instagram · maison.arnould</a> : 'Instagram : bientôt.'}</p>
