@@ -655,3 +655,8 @@ html[data-age='ok'] .agegate { display: none; }
 .carnet__bloc .carnet span.carnet__main { display: inline-block; position: static; margin-left: 8px; font-size: 23px; line-height: 1; vertical-align: -2px; }
 .prep__nav > button:disabled { visibility: hidden; }
 .contact__note { margin: -6px 0 4px; }
+/* correction manuscrite toujours placée sous le mot raturé */
+.carnet__bloc .carnet span.carnet__rature { display: inline-block; position: relative; }
+.carnet__bloc .carnet span.carnet__main { position: absolute; left: 2px; top: 88%; margin-left: 0; }
+.carnet__bloc .carnet .carnet__d { display: inline-block; padding-bottom: 22px; }
+@keyframes encre { to { clip-path: inset(-20% -60% -60% 0); } }
