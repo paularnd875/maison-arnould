@@ -729,3 +729,4 @@ html[data-age='ok'] .agegate { display: none; }
   .carnet__bloc .carnet { grid-auto-columns: 84%; }
   .carnet__fleche { display: none; }
 }
+.topbar.topbar--fondu { border-bottom-color: transparent !important; box-shadow: none !important; }
