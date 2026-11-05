@@ -104,7 +104,7 @@ const planches = [
       {
         n: 'iii.',
         variants: {
-          verveine: { t: 'filtrer', d: "Le linge garde les feuilles, pâles et vidées de tout ce qu'elles avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zoom.jpg', alt: 'La liqueur filtrée au travers du linge' },
+          verveine: { t: 'filtrer', d: "Le linge garde les feuilles, pâles et vidées de tout ce qu'elles avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-verveine.jpg', alt: 'La liqueur filtrée au travers du linge' },
           citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zestes.jpg', alt: 'Les zestes pressés dans le linge' },
         },
       },
@@ -138,9 +138,9 @@ const carnet = [
   { id: 'menthe-pouliot', name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage, ', rature: 'plus sage', fix: 'plus vive', apres: ' que sa cousine poivrée' },
   { id: 'champignon', name: 'liqueur de champignon', latin: 'espèces encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
   { id: 'ortie', name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
-  { id: 'chataigne', name: 'châtaigne', latin: 'Castanea sativa', picto: 'chataigne', avant: 'le fruit de l’arbre ', rature: 'à pain', fix: 'à liqueur', apres: ' des Ardéchois' },
+  { id: 'chataigne', name: 'châtaigne', latin: 'Castanea sativa', picto: 'chataigne', avant: 'le fruit de l’arbre ', rature: 'à pain', fix: 'à liqueur', apres: ' des Ardéchois', note: 'En Ardèche, on surnommait le châtaignier « l’arbre à pain » : ses fruits ont longtemps nourri les familles tout l’hiver.' },
   { id: 'mandarine', name: 'mandarine', latin: 'Citrus reticulata', picto: 'mandarine', avant: 'le petit soleil ', rature: 'd’été', fix: 'd’hiver', apres: ' des corbeilles de Noël' },
-  { id: 'framboise', name: 'framboise', latin: 'Rubus idaeus', picto: 'framboise', avant: 'le fruit qu’on ', rature: 'croque', fix: 'garde', apres: ' pour l’hiver' },
+  { id: 'framboise', name: 'framboise', latin: 'Rubus idaeus', picto: 'framboise', avant: 'le fruit ', rature: 'défendu', fix: 'préféré', apres: ' des fins d’été' },
 ];
 
 const lexique = [
@@ -190,9 +190,9 @@ export default function Home() {
           </div>
           <figure className="hero__media">
             <div className="fader">
-              <Image src="/images/goulot-centre.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
+              <Image src="/images/goulot-centre-v2.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
-            <figcaption>éch. n° 02 · <i>Citrus limon</i> &amp; <i>Aloysia citrodora</i> · observé par le goulot</figcaption>
+            <figcaption>éch. n° 02 · <i>Citrus limon</i> &amp; <i>Aloysia citrodora</i> · vu du goulot</figcaption>
           </figure>
         </section>
 
@@ -271,7 +271,7 @@ export default function Home() {
               <p className="simples__small">Des essais en petites séries, numérotés ; certains ne connaîtront qu'une saison, comme les fleurs qui les ont faits.</p>
             </div>
             <figure className="simples__photo">
-              <video className="simples__video" src="/videos/labo-gouttes-v2.mp4" poster="/videos/labo-gouttes-v2.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Gouttes de liqueur verte qui tombent au fond du verre" />
+              <video className="simples__video" src="/videos/labo-gouttes-v3.mp4" poster="/videos/labo-gouttes-v3.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Gouttes de liqueur verte qui tombent au fond du verre" />
             </figure>
           </div>
 
@@ -326,20 +326,24 @@ export default function Home() {
 
         {/* ——— Contact ——— */}
         <section id="contact" className="contact">
-          <Medallion size={96} ink="#F4ECD6" gold="#E8C547" />
-          <h2>écrire à la maison</h2>
-          <p className="contact__intro">
-            Un Noël à préparer, un mariage à fêter<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>, un anniversaire,
-            un accord mets et digestifs, ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
-          </p>
-          <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
-          <p className="contact__intro">
-            La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
-            une liqueur à rêver, une plante oubliée à me souffler, ou quelque vieux grimoire à me faire découvrir.
-          </p>
-          <ContactForm accessKey={site.web3formsKey} />
-          {site.email ? <p className="contact__alt">ou directement : <a href={`mailto:${site.email}`}>{site.email}</a></p> : null}
-          <p className="contact__alt">{site.instagram ? <a href={site.instagram}>instagram · maison.arnould</a> : 'Instagram : bientôt.'}</p>
+          <div className="contact__wrap">
+            <div className="contact__texte">
+              <Medallion size={80} ink="#F4ECD6" gold="#E8C547" />
+              <p className="kicker kicker--light">contact</p>
+              <h2>écrire à la <em>maison</em></h2>
+              <p className="contact__intro">
+                Un Noël à préparer, un mariage à fêter<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>, un anniversaire,
+                un accord mets et digestifs, ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
+              </p>
+              <p className="contact__intro">
+                La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
+                une liqueur à rêver, une plante oubliée à me souffler, ou quelque vieux grimoire à me faire découvrir.
+              </p>
+              <p id="note-mariage" className="contact__note"><sup>*</sup> en bidon ou en mignonnettes</p>
+              <p className="contact__alt">{site.instagram ? <a href={site.instagram}>instagram · maison.arnould</a> : 'Instagram : bientôt.'}</p>
+            </div>
+            <ContactForm accessKey={site.web3formsKey} />
+          </div>
         </section>
       </main>
 

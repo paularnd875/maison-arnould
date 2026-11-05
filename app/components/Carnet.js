@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import Picto from './Picto';
 
 const KEY = 'ma-carnet-voix';
+// Premières voix affichées au lancement (à retirer quand les vrais votes auront pris le relais).
+const AMORCE = { champignon: 4, 'menthe-pouliot': 2, chataigne: 3, mandarine: 2, ortie: 4 };
 
 function lireVoix() {
   try {
@@ -70,6 +72,19 @@ export default function Carnet({ items }) {
   };
 
   const piste = useRef(null);
+  const [bords, setBords] = useState({ g: true, d: false });
+  useEffect(() => {
+    const el = piste.current;
+    if (!el) return;
+    const maj = () => setBords({ g: el.scrollLeft <= 2, d: el.scrollLeft + el.clientWidth >= el.scrollWidth - 2 });
+    maj();
+    el.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj);
+    return () => {
+      el.removeEventListener('scroll', maj);
+      window.removeEventListener('resize', maj);
+    };
+  }, []);
   const defiler = (d) => {
     const el = piste.current;
     if (!el) return;
@@ -80,12 +95,12 @@ export default function Carnet({ items }) {
 
   return (
     <div className="carnet__defile">
-    <button type="button" className="carnet__fleche carnet__fleche--g" onClick={() => defiler(-1)} aria-label="Formules précédentes">←</button>
+    <button type="button" className="carnet__fleche carnet__fleche--g" onClick={() => defiler(-1)} disabled={bords.g} aria-label="Formules précédentes">←</button>
     <div className="carnet__piste" ref={piste}>
     <ul ref={ref} className={`carnet${ecrit ? ' is-ecrit' : ''}`}>
       {items.map((c, i) => {
         const a = voix.includes(c.id);
-        const n = counts[c.id] || 0;
+        const n = (counts[c.id] || 0) + (AMORCE[c.id] || 0);
         return (
           <li key={c.id} style={{ '--i': i }}>
             <Picto kind={c.picto} />
@@ -99,7 +114,9 @@ export default function Carnet({ items }) {
                   <span className="carnet__main">{c.fix}</span>
                 </span>
                 {c.apres}
+                {c.note ? <sup className="carnet__ast">*</sup> : null}
               </span>
+              {c.note ? <span className="carnet__note"><sup>*</sup> {c.note}</span> : null}
             </span>
             <button
               type="button"
@@ -117,7 +134,7 @@ export default function Carnet({ items }) {
       })}
     </ul>
     </div>
-    <button type="button" className="carnet__fleche carnet__fleche--d" onClick={() => defiler(1)} aria-label="Formules suivantes">→</button>
+    <button type="button" className="carnet__fleche carnet__fleche--d" onClick={() => defiler(1)} disabled={bords.d} aria-label="Formules suivantes">→</button>
     </div>
   );
 }

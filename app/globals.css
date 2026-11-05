@@ -730,3 +730,23 @@ html[data-age='ok'] .agegate { display: none; }
   .carnet__fleche { display: none; }
 }
 .topbar.topbar--fondu { border-bottom-color: transparent !important; box-shadow: none !important; }
+
+/* ——— V13 ——— */
+.carnet__fleche:disabled { opacity: 0.25; cursor: default; border-color: #3E4A2A; color: var(--tilleul); }
+.carnet__ast { color: var(--citron); font-size: 0.75em; margin-left: 1px; }
+.carnet__bloc .carnet span.carnet__note { display: block; font-size: 12.5px; line-height: 1.4; font-style: italic; color: #A9AE8C; margin-top: -10px; }
+.carnet__note sup { color: var(--citron); }
+
+/* contact : texte aligné à gauche, formulaire à droite */
+.contact { display: block; text-align: left; padding: clamp(56px, 8vw, 104px) 0; }
+.contact__wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.contact__texte { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.contact__texte .kicker { margin-top: 10px; }
+.contact__texte h2 { font-size: clamp(36px, 4.4vw, 52px); text-align: left; }
+.contact__texte h2 em { color: var(--citron); }
+.contact__intro { max-width: none; text-align: left; }
+.contact__note { margin: 0; text-align: left; }
+.contact__alt { text-align: left; margin-top: 6px; }
+.contact__wrap .form { max-width: none; margin-top: 8px; }
+@media (max-width: 900px) { .contact__wrap { grid-template-columns: 1fr; } }
+.carnet__bloc .carnet span.carnet__note { margin-top: 4px; }
