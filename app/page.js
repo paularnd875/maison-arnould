@@ -79,7 +79,7 @@ const frise = [
 const planches = [
   {
     num: 'I',
-    titre: "du jardin à l'alcool",
+    titre: "du jardin à la bouteille",
     steps: [
       {
         n: 'i.',
@@ -99,13 +99,13 @@ const planches = [
   },
   {
     num: 'II',
-    titre: 'le temps de séparer',
+    titre: 'l’essence se révèle',
     steps: [
       {
         n: 'iii.',
         variants: {
           verveine: { t: 'filtrer', d: "Le linge garde les feuilles, pâles et vidées de tout ce qu'elles avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-verveine.jpg', alt: 'La liqueur filtrée au travers du linge' },
-          citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zestes-c.jpg', alt: 'Les zestes pressés dans le linge' },
+          citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zestes-v2.jpg', alt: 'Les zestes pressés dans le linge' },
         },
       },
       { n: 'iv.', t: 'soutirer', d: 'La liqueur dépose ses brumes au fond de la dame-jeanne, puis s’en va par le tuyau, limpide comme au premier matin.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
@@ -113,7 +113,7 @@ const planches = [
   },
   {
     num: 'III',
-    titre: 'la douceur et le repos',
+    titre: 'le sucre et le silence',
     steps: [
       { n: 'v.', t: 'sucrer', d: "L'eau et les cristaux de sucre s'unissent en un sirop incolore, parfois agrémenté d'un filet de miel de sapin, récolté à Craponne-sur-Arzon. Versé dans la liqueur, il sublime l'alcool, en arrondit les angles et en apaise le feu.", img: '/images/sirop-zoom.jpg', alt: 'Le sirop de sucre versé en filet clair' },
       {
@@ -190,7 +190,7 @@ export default function Home() {
           </div>
           <figure className="hero__media">
             <div className="fader">
-              <Image src="/images/goulot-centre-v3.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
+              <Image src="/images/goulot-v4.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
             <figcaption>éch. n° 02 · <i>Citrus limon</i> &amp; <i>Aloysia citrodora</i> · vu du goulot</figcaption>
           </figure>
