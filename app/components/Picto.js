@@ -46,6 +46,34 @@ export default function Picto({ kind, size = 52 }) {
             <circle cx="32" cy="26" r="1.6" stroke={OR} /><circle cx="46" cy="22" r="1.2" stroke={OR} /><circle cx="52" cy="30" r="1.4" stroke={OR} />
             <path d="M24,70 C30,67 50,67 58,70" stroke={VERT} strokeWidth="0.7" />
           </>
+        ) : kind === 'chataigne' ? (
+          <>
+            <path d="M40,18 C30,26 22,38 22,50 C22,62 30,68 40,68 C50,68 58,62 58,50 C58,38 50,26 40,18 Z" stroke={OR} fill="rgba(232,197,71,0.15)" />
+            <path d="M24,56 C32,60 48,60 56,56" stroke={OR} strokeWidth="0.7" />
+            <path d="M40,18 L40,13" stroke={OR} />
+            {[[24, 30], [56, 30], [18, 46], [62, 46], [30, 20], [50, 20]].map(([x, y], i) => (
+              <path key={i} d={`M${x},${y} l${x < 40 ? -5 : 5},-4 M${x},${y} l${x < 40 ? -6 : 6},1`} stroke={VERT} strokeWidth="0.7" />
+            ))}
+          </>
+        ) : kind === 'mandarine' ? (
+          <>
+            <circle cx="40" cy="46" r="20" stroke={OR} fill="rgba(232,197,71,0.18)" />
+            {[0, 1, 2, 3, 4, 5].map((k) => (
+              <circle key={k} cx={34 + (k % 3) * 6} cy={40 + Math.floor(k / 3) * 9} r="0.8" fill={OR} />
+            ))}
+            <path d="M40,26 L41,20" stroke={VERT} />
+            <path d="M41,21 C46,13 56,13 60,18 C54,23 46,23 41,21 Z" stroke={VERT} fill="rgba(201,206,122,0.2)" />
+            <path d="M42,21 L58,18" stroke={VERT} strokeWidth="0.6" />
+          </>
+        ) : kind === 'framboise' ? (
+          <>
+            {[[34, 40], [40, 37], [46, 40], [31, 47], [37, 46], [43, 46], [49, 47], [34, 53], [40, 53], [46, 53], [37, 59], [43, 59], [40, 64]].map(([x, y], i) => (
+              <circle key={i} cx={x} cy={y} r="3.6" stroke={OR} fill={i % 3 === 0 ? 'rgba(232,197,71,0.18)' : 'none'} />
+            ))}
+            <path d="M33,34 C36,30 44,30 47,34" stroke={VERT} />
+            <path d="M40,31 L40,18" stroke={VERT} />
+            <path d="M40,22 C33,16 26,18 24,22 C30,26 36,25 40,22 Z" stroke={VERT} />
+          </>
         ) : kind === 'pouliot' ? (
           <>
             <path d="M40,72 L40,10" stroke={VERT} />

@@ -120,7 +120,7 @@ const planches = [
         n: 'vi.',
         variants: {
           verveine: { t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/bouteille-couchant.jpg', alt: 'Une bouteille de liqueur verte levée vers le soleil couchant' },
-          citron: { t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/mise-en-bouteille-degrade.jpg', alt: 'La liqueur en bouteille, en dégradé de couleurs' },
+          citron: { t: 'mettre en bouteille', d: 'Chaque bouteille est remplie à la main, puis laissée au repos : le temps achève ce que le jardin, lui, a commencé.', img: '/images/bouteille-couchant-citron.jpg', alt: 'Une bouteille de liqueur de citron levée vers le soleil couchant' },
         },
       },
     ],
@@ -134,10 +134,13 @@ const essais = [
 ];
 
 const carnet = [
-  { name: 'verveine-menthe', latin: 'Aloysia citrodora · Mentha × piperita', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
-  { name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage, ', rature: 'plus sage', fix: 'plus vive', apres: ' que sa cousine poivrée' },
-  { name: 'liqueur de champignon', latin: 'espèces encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
-  { name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
+  { id: 'verveine-menthe', name: 'verveine-menthe', latin: 'Aloysia citrodora · Mentha × piperita', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
+  { id: 'menthe-pouliot', name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage, ', rature: 'plus sage', fix: 'plus vive', apres: ' que sa cousine poivrée' },
+  { id: 'champignon', name: 'liqueur de champignon', latin: 'espèces encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
+  { id: 'ortie', name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
+  { id: 'chataigne', name: 'châtaigne', latin: 'Castanea sativa', picto: 'chataigne', avant: 'l’automne des ', rature: 'marrons', fix: 'châtaignes', apres: ' grillées' },
+  { id: 'mandarine', name: 'mandarine', latin: 'Citrus reticulata', picto: 'mandarine', avant: 'le petit soleil ', rature: 'd’été', fix: 'd’hiver', apres: ' des corbeilles de Noël' },
+  { id: 'framboise', name: 'framboise', latin: 'Rubus idaeus', picto: 'framboise', avant: 'le fruit qu’on ', rature: 'cueille', fix: 'chaparde', apres: ' au bord du chemin' },
 ];
 
 const lexique = [
@@ -187,9 +190,9 @@ export default function Home() {
           </div>
           <figure className="hero__media">
             <div className="fader">
-              <Image src="/images/goulot-v2.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
+              <Image src="/images/goulot-centre.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
-            <figcaption>essai n° 2, vu du goulot</figcaption>
+            <figcaption>éch. n° 02 · <i>Citrus limon</i> &amp; <i>Aloysia citrodora</i> · vue axiale</figcaption>
           </figure>
         </section>
 
@@ -268,7 +271,7 @@ export default function Home() {
               <p className="simples__small">Des essais en petites séries, numérotés ; certains ne connaîtront qu'une saison, comme les fleurs qui les ont faits.</p>
             </div>
             <figure className="simples__photo">
-              <Image src="/images/labo-potion.jpg" alt="Une liqueur vert profond qui tourbillonne au fond du verre" fill sizes="(max-width: 900px) 100vw, 460px" />
+              <video className="simples__video" src="/videos/labo-gouttes.mp4" poster="/videos/labo-gouttes.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Gouttes de liqueur verte qui tombent au fond du verre" />
             </figure>
           </div>
 
@@ -334,12 +337,7 @@ export default function Home() {
             La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
             une liqueur à rêver, une plante oubliée à me souffler, ou quelque vieux grimoire à me faire découvrir.
           </p>
-          <div className="contact__grid">
-            <figure className="contact__photo">
-              <Image src="/images/verveine-plant.jpg" alt="La verveine au jardin, dans la lumière d'automne" fill sizes="(max-width: 900px) 100vw, 420px" />
-            </figure>
-            <ContactForm accessKey={site.web3formsKey} />
-          </div>
+          <ContactForm accessKey={site.web3formsKey} />
           {site.email ? <p className="contact__alt">ou directement : <a href={`mailto:${site.email}`}>{site.email}</a></p> : null}
           <p className="contact__alt">{site.instagram ? <a href={site.instagram}>instagram · maison.arnould</a> : 'Instagram : bientôt.'}</p>
         </section>
