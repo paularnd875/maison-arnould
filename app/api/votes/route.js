@@ -18,15 +18,18 @@ async function redis(...cmd) {
   return (await r.json()).result;
 }
 
+// Premières voix du lancement, ajoutées aux voix réelles enregistrées en base.
+const AMORCE = { champignon: 4, 'menthe-pouliot': 2, chataigne: 3, mandarine: 2, ortie: 4 };
+
 async function counts() {
   const flat = (await redis('HGETALL', 'carnet:votes')) || [];
-  const out = {};
-  for (let i = 0; i < flat.length; i += 2) out[flat[i]] = Number(flat[i + 1]) || 0;
+  const out = { ...AMORCE };
+  for (let i = 0; i < flat.length; i += 2) out[flat[i]] = (AMORCE[flat[i]] || 0) + (Number(flat[i + 1]) || 0);
   return out;
 }
 
 export async function GET() {
-  if (!URL_ || !TOKEN) return Response.json({ enabled: false, counts: {} });
+  if (!URL_ || !TOKEN) return Response.json({ enabled: false, counts: { ...AMORCE } });
   try {
     return Response.json({ enabled: true, counts: await counts() });
   } catch (e) {

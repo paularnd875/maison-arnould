@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import Picto from './Picto';
 
 const KEY = 'ma-carnet-voix';
-// Premières voix affichées au lancement (à retirer quand les vrais votes auront pris le relais).
-const AMORCE = { champignon: 4, 'menthe-pouliot': 2, chataigne: 3, mandarine: 2, ortie: 4 };
 
 function lireVoix() {
   try {
@@ -100,7 +98,7 @@ export default function Carnet({ items }) {
     <ul ref={ref} className={`carnet${ecrit ? ' is-ecrit' : ''}`}>
       {items.map((c, i) => {
         const a = voix.includes(c.id);
-        const n = (counts[c.id] || 0) + (AMORCE[c.id] || 0);
+        const n = counts[c.id] || 0;
         return (
           <li key={c.id} style={{ '--i': i }}>
             <Picto kind={c.picto} />

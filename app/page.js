@@ -140,7 +140,7 @@ const carnet = [
   { id: 'ortie', name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
   { id: 'chataigne', name: 'châtaigne', latin: 'Castanea sativa', picto: 'chataigne', avant: 'le fruit de l’arbre ', rature: 'à pain', fix: 'à liqueur', apres: ' des Ardéchois', note: 'En Ardèche, on surnommait le châtaignier « l’arbre à pain » : ses fruits ont longtemps nourri les familles tout l’hiver.' },
   { id: 'mandarine', name: 'mandarine', latin: 'Citrus reticulata', picto: 'mandarine', avant: 'le petit soleil ', rature: 'd’été', fix: 'd’hiver', apres: ' des corbeilles de Noël' },
-  { id: 'framboise', name: 'framboise', latin: 'Rubus idaeus', picto: 'framboise', avant: 'le petit rubis ', rature: 'des confitures', fix: 'des sortilèges', apres: ' d’été' },
+  { id: 'framboise', name: 'framboise', latin: 'Rubus idaeus', picto: 'framboise', avant: 'le petit rubis ', rature: 'des confitures', fix: 'des forêts', apres: '' },
 ];
 
 const lexique = [
@@ -271,7 +271,7 @@ export default function Home() {
               <p className="simples__small">Des essais en petites séries, numérotés ; certains ne connaîtront qu'une saison, comme les fleurs qui les ont faits.</p>
             </div>
             <figure className="simples__photo">
-              <video className="simples__video" src="/videos/labo-gouttes-v4.mp4" poster="/videos/labo-gouttes-v4.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Gouttes de liqueur verte qui tombent au fond du verre" />
+              <video className="simples__video" src="/videos/labo-gouttes-v5.mp4" poster="/videos/labo-gouttes-v5.jpg" autoPlay muted loop playsInline preload="metadata" aria-label="Gouttes de liqueur verte qui tombent au fond du verre" />
             </figure>
           </div>
 
