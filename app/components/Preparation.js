@@ -19,7 +19,6 @@ function Step({ step, liqueur }) {
       <div className="prep__text" key={`${step.n}-${v.t}-${liqueur}`}>
         <p className="prep__n">
           {step.n}
-          {step.variants ? <span className="prep__selon">selon la liqueur</span> : null}
         </p>
         <h3>{v.t}</h3>
         <p className="prep__d">{v.d}</p>

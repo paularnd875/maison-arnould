@@ -99,7 +99,7 @@ const planches = [
   },
   {
     num: 'II',
-    titre: 'l’essence se révèle',
+    titre: 'l’essence, goutte à goutte',
     steps: [
       {
         n: 'iii.',
@@ -190,9 +190,9 @@ export default function Home() {
           </div>
           <figure className="hero__media">
             <div className="fader">
-              <Image src="/images/goulot-v4.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
+              <Image src="/images/goulot-v5.jpg" alt="Zestes de citron et feuilles de verveine, vus par le goulot" fill priority sizes="(max-width: 900px) 100vw, 440px" />
             </div>
-            <figcaption>éch. n° 02 · <i>Citrus limon</i> &amp; <i>Aloysia citrodora</i> · vu du goulot</figcaption>
+            <figcaption>éch. n° 02 · <i>Citrus limon</i> &amp; <i>Aloysia citrodora</i></figcaption>
           </figure>
         </section>
 
