@@ -69,7 +69,19 @@ export default function Carnet({ items }) {
     } catch (e) {}
   };
 
+  const piste = useRef(null);
+  const defiler = (d) => {
+    const el = piste.current;
+    if (!el) return;
+    const li = el.querySelector('li');
+    const w = li ? li.getBoundingClientRect().width + 20 : 300;
+    el.scrollBy({ left: d * w, behavior: 'smooth' });
+  };
+
   return (
+    <div className="carnet__defile">
+    <button type="button" className="carnet__fleche carnet__fleche--g" onClick={() => defiler(-1)} aria-label="Formules précédentes">←</button>
+    <div className="carnet__piste" ref={piste}>
     <ul ref={ref} className={`carnet${ecrit ? ' is-ecrit' : ''}`}>
       {items.map((c, i) => {
         const a = voix.includes(c.id);
@@ -104,5 +116,8 @@ export default function Carnet({ items }) {
         );
       })}
     </ul>
+    </div>
+    <button type="button" className="carnet__fleche carnet__fleche--d" onClick={() => defiler(1)} aria-label="Formules suivantes">→</button>
+    </div>
   );
 }
