@@ -25,7 +25,7 @@ const liqueurs = [
       'Il y a des souvenirs qui se greffent.',
       'Pendant cinquante ans, une passiflore a couvert la terrasse de Saint-Vincent, en Ardèche.',
       'Sur cette étiquette, elle fleurit dans la verveine.',
-      'Elle ne se cueille pas : elle ne pousse et perdure, que dans la mémoire.',
+      'Elle ne se cueille pas : elle ne pousse et perdure, que dans les mémoires.',
     ],
     morale: 'Ce qui germe dans le cœur, le temps ne peut l’arracher.',
   },
@@ -84,7 +84,7 @@ const planches = [
       {
         n: 'i.',
         variants: {
-          verveine: { t: 'cueillir', d: "Deux fois l'an, quand l'été s'annonce et quand l'automne hésite, quand la lumière du soir dore les feuilles. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles fraîchement cueillies' },
+          verveine: { t: 'cueillir', d: "Quand l'été s'annonce, puis quand l'automne hésite, à l'heure où la lumière du soir dore les feuilles. La verveine se laisse prendre la première ; la menthe suit.", img: '/images/mains-feuilles.jpg', alt: 'Une main plongée dans les feuilles fraîchement cueillies' },
           citron: { t: 'râper', d: "Le citron garde son âme dans sa peau. On la lui prend à fleur d'écorce, d'un geste qui ne s'apprend qu'à force de saisons.", img: '/images/raper-citrons.jpg', alt: 'Zestes de citron sur la râpe' },
         },
       },
@@ -108,7 +108,7 @@ const planches = [
           citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zestes-v2.jpg', alt: 'Les zestes pressés dans le linge' },
         },
       },
-      { n: 'iv.', t: 'soutirer', d: 'La liqueur dépose ses brumes au fond de la dame-jeanne, puis s’en va par le tuyau, limpide comme au premier matin.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
+      { n: 'iv.', t: 'soutirer', d: 'La liqueur abandonne son dépôt au fond de la dame-jeanne, puis s’en va par le tuyau, limpide comme au premier matin.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
     ],
   },
   {
@@ -134,11 +134,11 @@ const essais = [
 ];
 
 const carnet = [
-  { id: 'verveine-menthe', name: 'verveine-menthe', latin: 'Aloysia citrodora · Mentha × piperita', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
-  { id: 'menthe-pouliot', name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage, ', rature: 'plus sage', fix: 'plus vive', apres: ' que sa cousine poivrée' },
-  { id: 'champignon', name: 'liqueur de champignon', latin: 'espèces encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
-  { id: 'ortie', name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
   { id: 'chataigne', name: 'châtaigne', latin: 'Castanea sativa', picto: 'chataigne', avant: 'le fruit de l’arbre ', rature: 'à pain', fix: 'à liqueur', apres: ' des Ardéchois', note: 'En Ardèche, on surnommait le châtaignier « l’arbre à pain » : ses fruits ont longtemps nourri les familles tout l’hiver.' },
+  { id: 'champignon', name: 'liqueur de champignon', latin: 'espèces encore à l’étude', picto: 'champignon', avant: 'le sous-bois ', rature: 'en omelette', fix: 'en flacon', apres: '' },
+  { id: 'menthe-pouliot', name: 'menthe pouliot', latin: 'Mentha pulegium', picto: 'pouliot', avant: 'la menthe sauvage, ', rature: 'plus sage', fix: 'plus vive', apres: ' que sa cousine poivrée' },
+  { id: 'verveine-menthe', name: 'verveine-menthe', latin: 'Aloysia citrodora · Mentha × piperita', picto: 'verveine-menthe', avant: 'les deux plantes de la maison ', rature: 'mélangées', fix: 'réunies', apres: '' },
+  { id: 'ortie', name: 'ortie', latin: 'Urtica dioica', picto: 'ortie', avant: 'de toutes les herbes, la plus ', rature: 'mal aimée', fix: 'méconnue', apres: '' },
   { id: 'mandarine', name: 'mandarine', latin: 'Citrus reticulata', picto: 'mandarine', avant: 'le petit soleil ', rature: 'd’été', fix: 'd’hiver', apres: ' des corbeilles de Noël' },
   { id: 'framboise', name: 'framboise', latin: 'Rubus idaeus', picto: 'framboise', avant: 'le petit rubis ', rature: 'des confitures', fix: 'des forêts', apres: '' },
 ];
@@ -249,7 +249,7 @@ export default function Home() {
             <h2>à quatre <em>mains</em></h2>
             <p className="methode__intro">
               Ici, la liqueur se fait à quatre mains : celles de ma mère et les miennes. Côte à côte, au jardin comme à l'officine,
-              nos gestes se répondent, sans même avoir à se les dire.
+              nos gestes se répondent en silence.
             </p>
           </div>
           <Preparation planches={planches} />
@@ -280,7 +280,7 @@ export default function Home() {
             <p>
               <b>1.</b> <i>Vx.</i> Du Moyen Âge au XVIII<sup>e</sup> siècle, plantes cultivées par les moines au <i>jardin des simples</i>, ainsi nommées parce qu'on les employait seules, sans artifice ni mélange, dans leur vérité première, telles que la nature les donne.<br />
               <b>2.</b> <i>Par ext.</i> Le laboratoire de maison arnould : cuvées d'essai, en petites séries, de plantes connues depuis des siècles, cueillies par les
-              anciens puis délaissées. Oubliées des jardins, arrachées, prises pour de mauvaises herbes.
+              anciens puis délaissées. Oubliées des jardins, arrachées, confondues avec les mauvaises herbes.
             </p>
           </div>
 
@@ -332,7 +332,7 @@ export default function Home() {
               <p className="kicker kicker--light">contact</p>
               <h2>écrire à la <em>maison</em></h2>
               <p className="contact__intro">
-                Un Noël à préparer, un mariage à fêter<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>, un anniversaire,
+                Un Noël à préparer, un mariage ou un anniversaire à célébrer<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>,
                 un accord mets et digestifs, ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
               </p>
               <p className="contact__intro">
