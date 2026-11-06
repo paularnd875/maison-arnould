@@ -71,7 +71,7 @@ const frise = [
   { quand: '1929', quoi: 'Naissance d’un des plus grands disciples de La Fontaine.' },
   { quand: 'puis', quoi: 'Dédé rachète la maison de sa belle-mère, à Vals ; la verveine change de mains, sans changer de terre.' },
   { quand: 'plus tard', quoi: 'En Ardèche, à Saint-Vincent, une passiflore couvre sa terrasse cinquante étés durant. C’est elle qui a inspiré l’élixir d’aujourd’hui.' },
-  { quand: '2009', quoi: 'Les ans en étant la cause, Dédé me confie son jardin, et chaque geste avec, quitte à me les confier deux fois.' },
+  { quand: '2009', quoi: 'Les ans en étant la cause, le jardin passe dans mes mains ; la voix de Dédé, elle, ne le quitte pas.' },
   { quand: '2026', quoi: 'Naissance de maison arnould.' },
 ];
 
@@ -108,7 +108,7 @@ const planches = [
           citron: { t: 'filtrer', d: "Le linge garde les zestes, pâlis et vidés de tout ce qu'ils avaient à dire, et ne laisse perler que leur essence.", img: '/images/filtrage-zestes-v2.jpg', alt: 'Les zestes pressés dans le linge' },
         },
       },
-      { n: 'iv.', t: 'soutirer', d: 'La liqueur abandonne son dépôt au fond de la dame-jeanne, puis s’en va par le tuyau, limpide comme au premier matin.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
+      { n: 'iv.', t: 'soutirer', d: 'Par un simple tuyau, la liqueur passe de dame-jeanne en dame-jeanne, sans hâte, comme on change de demeure.', img: '/images/soutirage.jpg', alt: 'Le tuyau de soutirage plongé dans la dame-jeanne en osier' },
     ],
   },
   {
@@ -249,7 +249,7 @@ export default function Home() {
             <h2>à quatre <em>mains</em></h2>
             <p className="methode__intro">
               Ici, la liqueur se fait à quatre mains : celles de ma mère et les miennes. Côte à côte, au jardin comme à l'officine,
-              nos gestes se répondent en silence.
+              nous avons tant répété nos gestes qu'ils n'ont plus besoin de mots.
             </p>
           </div>
           <Preparation planches={planches} />
@@ -280,7 +280,7 @@ export default function Home() {
             <p>
               <b>1.</b> <i>Vx.</i> Du Moyen Âge au XVIII<sup>e</sup> siècle, plantes cultivées par les moines au <i>jardin des simples</i>, ainsi nommées parce qu'on les employait seules, sans artifice ni mélange, dans leur vérité première, telles que la nature les donne.<br />
               <b>2.</b> <i>Par ext.</i> Le laboratoire de maison arnould : cuvées d'essai, en petites séries, de plantes connues depuis des siècles, cueillies par les
-              anciens puis délaissées. Oubliées des jardins, arrachées, confondues avec les mauvaises herbes.
+              anciens puis délaissées. Oubliées des jardins, arrachées, reléguées au rang de mauvaises herbes.
             </p>
           </div>
 
@@ -333,7 +333,7 @@ export default function Home() {
               <h2>écrire à la <em>maison</em></h2>
               <p className="contact__intro">
                 Un Noël à préparer, un mariage ou un anniversaire à célébrer<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>,
-                un accord mets et digestifs, ou une histoire à offrir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
+                un accord mets et digestifs, ou simplement l'envie de faire plaisir ? Il y a toujours, au fond de l'officine, de quoi y répondre.
               </p>
               <p className="contact__intro">
                 La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
