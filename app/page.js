@@ -249,7 +249,7 @@ export default function Home() {
             <h2>à quatre <em>mains</em></h2>
             <p className="methode__intro">
               Ici, la liqueur se fait à quatre mains : celles de ma mère et les miennes. Côte à côte, au jardin comme à l'officine,
-              nos gestes, mille fois répétés, ont appris à se répondre sans un mot.
+              nos mains se devinent : entre une mère et son fils, certaines choses se sont toujours passées de mots.
             </p>
           </div>
           <Preparation planches={planches} />
@@ -333,7 +333,7 @@ export default function Home() {
               <h2>écrire à la <em>maison</em></h2>
               <p className="contact__intro">
                 Un Noël à préparer, un mariage ou un anniversaire à célébrer<a href="#note-mariage" className="renvoi renvoi--doux"><sup>*</sup></a>,
-                un accord mets et digestifs, ou l'envie de transmettre, à votre tour, une histoire en bouteille ? Il y a toujours, au fond de l'officine, de quoi y répondre.
+                un accord mets et digestifs, ou une histoire à partager, le temps d'un verre ? Il y a toujours, au fond de l'officine, de quoi y répondre.
               </p>
               <p className="contact__intro">
                 La porte de l'officine reste aussi entrouverte à qui voudrait cheminer un peu avec moi : une collaboration à imaginer,
